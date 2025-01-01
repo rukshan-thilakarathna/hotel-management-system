@@ -1,0 +1,15 @@
+.add-button{
+    background: #2e7357 !important;
+    color: white !important;
+    text-align: center !important;
+    display: block !important;
+    border-radius: 5px !important;
+}
+
+.remove-button{
+    background: #801212 !important;
+    color: white !important;
+    text-align: center !important;
+    display: block !important;
+    border-radius: 5px !important;
+}
