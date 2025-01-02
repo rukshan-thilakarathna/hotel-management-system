@@ -48,7 +48,7 @@ class StaffEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return $this->user->exists ? 'Edit User' : 'Create User';
+        return $this->user->exists ? 'Edit Staff Employee' : 'Create Staff Employee';
     }
 
     /**
@@ -62,7 +62,7 @@ class StaffEditScreen extends Screen
     public function permission(): ?iterable
     {
         return [
-            'platform.systems.users',
+            'platform.systems.staff',
         ];
     }
 
@@ -74,7 +74,7 @@ class StaffEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make(__('Impersonate user'))
+            Button::make(__('Impersonate Employee'))
                 ->icon('bg.box-arrow-in-right')
                 ->confirm(__('You can revert to your original state by logging out.'))
                 ->method('loginAs')
@@ -132,16 +132,16 @@ class StaffEditScreen extends Screen
                         ->method('save')
                 ),
 
-            Layout::block(RolePermissionLayout::class)
-                ->title(__('Permissions'))
-                ->description(__('Allow the user to perform some actions that are not provided for by his roles'))
-                ->commands(
-                    Button::make(__('Save'))
-                        ->type(Color::BASIC)
-                        ->icon('bs.check-circle')
-                        ->canSee($this->user->exists)
-                        ->method('save')
-                ),
+            // Layout::block(RolePermissionLayout::class)
+            //     ->title(__('Permissions'))
+            //     ->description(__('Allow the user to perform some actions that are not provided for by his roles'))
+            //     ->commands(
+            //         Button::make(__('Save'))
+            //             ->type(Color::BASIC)
+            //             ->icon('bs.check-circle')
+            //             ->canSee($this->user->exists)
+            //             ->method('save')
+            //     ),
 
         ];
     }
@@ -174,9 +174,9 @@ class StaffEditScreen extends Screen
 
         $user->replaceRoles($request->input('user.roles'));
 
-        Toast::info(__('User was saved.'));
+        Toast::info(__('Employee was saved.'));
 
-        return redirect()->route('platform.systems.users');
+        return redirect()->route('platform.systems.staff');
     }
 
     /**
@@ -188,9 +188,9 @@ class StaffEditScreen extends Screen
     {
         $user->delete();
 
-        Toast::info(__('User was removed'));
+        Toast::info(__('Employee was removed'));
 
-        return redirect()->route('platform.systems.users');
+        return redirect()->route('platform.systems.staff');
     }
 
     /**
@@ -200,7 +200,7 @@ class StaffEditScreen extends Screen
     {
         Impersonation::loginAs($user);
 
-        Toast::info(__('You are now impersonating this user'));
+        Toast::info(__('You are now impersonating this employee'));
 
         return redirect()->route(config('platform.index'));
     }

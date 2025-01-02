@@ -25,6 +25,10 @@ class AdminsEditLayout extends Rows
                 ->title(__('Name'))
                 ->placeholder(__('Name')),
 
+                Input::make('user.type')
+                ->type('hidden')
+                ->value('1'),
+
             Input::make('user.email')
                 ->type('email')
                 ->required()

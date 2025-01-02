@@ -38,7 +38,7 @@ class AdminsListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'User Management';
+        return 'Admin Management';
     }
 
     /**
@@ -52,7 +52,7 @@ class AdminsListScreen extends Screen
     public function permission(): ?iterable
     {
         return [
-            'platform.systems.users',
+            'platform.systems.admins',
         ];
     }
 
@@ -66,7 +66,7 @@ class AdminsListScreen extends Screen
         return [
             Link::make(__('Add'))
                 ->icon('bs.plus-circle')
-                ->route('platform.systems.users.create'),
+                ->route('platform.systems.admin.create'),
         ];
     }
 
@@ -109,13 +109,13 @@ class AdminsListScreen extends Screen
 
         $user->fill($request->input('user'))->save();
 
-        Toast::info(__('User was saved.'));
+        Toast::info(__('Admin was saved.'));
     }
 
     public function remove(Request $request): void
     {
         User::findOrFail($request->get('id'))->delete();
 
-        Toast::info(__('User was removed'));
+        Toast::info(__('Admin was removed'));
     }
 }

@@ -48,7 +48,7 @@ class AdminsEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return $this->user->exists ? 'Edit User' : 'Create User';
+        return $this->user->exists ? 'Edit Admin' : 'Create Admin';
     }
 
     /**
@@ -62,7 +62,7 @@ class AdminsEditScreen extends Screen
     public function permission(): ?iterable
     {
         return [
-            'platform.systems.users',
+            'platform.systems.admins',
         ];
     }
 
@@ -74,7 +74,7 @@ class AdminsEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make(__('Impersonate user'))
+            Button::make(__('Impersonate Admin'))
                 ->icon('bg.box-arrow-in-right')
                 ->confirm(__('You can revert to your original state by logging out.'))
                 ->method('loginAs')
@@ -174,9 +174,9 @@ class AdminsEditScreen extends Screen
 
         $user->replaceRoles($request->input('user.roles'));
 
-        Toast::info(__('User was saved.'));
+        Toast::info(__('Admin was saved.'));
 
-        return redirect()->route('platform.systems.users');
+        return redirect()->route('platform.systems.admin');
     }
 
     /**
@@ -188,9 +188,9 @@ class AdminsEditScreen extends Screen
     {
         $user->delete();
 
-        Toast::info(__('User was removed'));
+        Toast::info(__('Admin was removed'));
 
-        return redirect()->route('platform.systems.users');
+        return redirect()->route('platform.systems.admin');
     }
 
     /**
@@ -200,7 +200,7 @@ class AdminsEditScreen extends Screen
     {
         Impersonation::loginAs($user);
 
-        Toast::info(__('You are now impersonating this user'));
+        Toast::info(__('You are now impersonating this admin'));
 
         return redirect()->route(config('platform.index'));
     }

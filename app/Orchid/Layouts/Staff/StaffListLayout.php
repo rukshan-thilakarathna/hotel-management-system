@@ -32,7 +32,34 @@ class StaffListLayout extends Table
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
-                ->render(fn (User $user) => new Persona($user->presenter())),
+                ->render(fn (User $user) => ModalToggle::make($user->name)
+                    ->modal('editUserModal')
+                    ->modalTitle($user->presenter()->title())
+                    ->method('saveUser')
+                    ->asyncParameters([
+                        'user' => $user->id,
+                    ])),
+
+            TD::make('mobile_number', __('Phone'))  
+                ->sort()
+                ->cantHide()
+                ->filter(Input::make()),
+                
+            TD::make('emp_number', __('Employee Number'))
+                ->sort()
+                ->cantHide()
+                ->filter(Input::make()),
+
+            TD::make('post', __('Position'))
+                ->sort()
+                ->cantHide()
+                ->filter(Input::make()),
+
+            TD::make('monthly_salary', __('Monthly Salary'))
+                ->sort()
+                ->cantHide()
+                ->filter(Input::make()),
+
 
             TD::make('email', __('Email'))
                 ->sort()
@@ -65,7 +92,7 @@ class StaffListLayout extends Table
                     ->list([
 
                         Link::make(__('Edit'))
-                            ->route('platform.systems.users.edit', $user->id)
+                            ->route('platform.systems.staff.edit', $user->id)
                             ->icon('bs.pencil'),
 
                         Button::make(__('Delete'))

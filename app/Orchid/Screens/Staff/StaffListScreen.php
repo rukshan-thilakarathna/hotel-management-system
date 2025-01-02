@@ -9,6 +9,7 @@ use App\Orchid\Layouts\Staff\StaffListLayout;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\User;
+use App\Orchid\Layouts\Staff\StaffFiltersLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
@@ -26,7 +27,7 @@ class StaffListScreen extends Screen
         return [
             'users' => User::with('roles')
                 ->where('type', 3)
-                ->filters()
+                ->filters(StaffFiltersLayout::class)
                 ->defaultSort('id', 'desc')
                 ->paginate(),
         ];
@@ -37,7 +38,7 @@ class StaffListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'User Management';
+        return 'Staff Management';
     }
 
     /**
@@ -51,7 +52,7 @@ class StaffListScreen extends Screen
     public function permission(): ?iterable
     {
         return [
-            'platform.systems.users',
+            'platform.systems.staff',
         ];
     }
 
@@ -65,7 +66,7 @@ class StaffListScreen extends Screen
         return [
             Link::make(__('Add'))
                 ->icon('bs.plus-circle')
-                ->route('platform.systems.users.create'),
+                ->route('platform.systems.staff.create'),
         ];
     }
 
@@ -77,6 +78,7 @@ class StaffListScreen extends Screen
     public function layout(): iterable
     {
         return [
+            StaffFiltersLayout::class,
             StaffListLayout::class,
 
             Layout::modal('editUserModal', StaffEditLayout::class)
@@ -107,13 +109,13 @@ class StaffListScreen extends Screen
 
         $user->fill($request->input('user'))->save();
 
-        Toast::info(__('User was saved.'));
+        Toast::info(__('Employee was saved.'));
     }
 
     public function remove(Request $request): void
     {
         User::findOrFail($request->get('id'))->delete();
 
-        Toast::info(__('User was removed'));
+        Toast::info(__('Employee  was removed'));
     }
 }

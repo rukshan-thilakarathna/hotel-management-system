@@ -25,11 +25,24 @@ class UserEditLayout extends Rows
                 ->title(__('Name'))
                 ->placeholder(__('Name')),
 
+                Input::make('user.type')
+                ->type('hidden')
+                ->value('2'),
+
             Input::make('user.email')
                 ->type('email')
                 ->required()
                 ->title(__('Email'))
                 ->placeholder(__('Email')),
+
+            Input::make('user.mobile_number')
+                ->type('text')
+                ->max(12)
+                ->required()
+                ->title('Mobile Number')
+                ->placeholder('Mobile Number'),
+
+            
         ];
     }
 }
