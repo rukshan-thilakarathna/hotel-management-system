@@ -61,6 +61,16 @@ class PlatformProvider extends OrchidServiceProvider
                 ->permission('platform.systems.users')
                 ->title(__('Access Controls')),
 
+            Menu::make(__('Admins'))
+                ->icon('bs.people')
+                ->route('platform.systems.admin')
+                ->permission('platform.systems.admins'),
+
+            Menu::make(__('Staff'))
+                ->icon('bs.people')
+                ->route('platform.systems.staff')
+                ->permission('platform.systems.staff'),
+
             Menu::make(__('Roles'))
                 ->icon('bs.shield')
                 ->route('platform.systems.roles')
@@ -81,7 +91,9 @@ class PlatformProvider extends OrchidServiceProvider
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.rooms', __('Rooms'))
                 ->addPermission('platform.systems.roomsaddedfacilities', __('Rooms Added Facilities'))
-                ->addPermission('platform.systems.users', __('Users')),
+                ->addPermission('platform.systems.users', __('Users'))
+                ->addPermission('platform.systems.admins', __('Admins'))
+                ->addPermission('platform.systems.staff', __('Staff')),
         ];
     }
 }

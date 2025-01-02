@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Orchid\Screens\Admins\AdminsEditScreen;
+use App\Orchid\Screens\Admins\AdminsListScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
@@ -20,6 +22,8 @@ use App\Orchid\Screens\RoomBooking\BookingListScreen;
 use App\Orchid\Screens\RoomBooking\RoomAvailabilityListScreen;
 use App\Orchid\Screens\Rooms\RoomListScreen;
 use App\Orchid\Screens\Rooms\RoomViewScreen;
+use App\Orchid\Screens\Staff\StaffEditScreen;
+use App\Orchid\Screens\Staff\StaffListScreen;
 use App\Orchid\Screens\Stock\StockListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
@@ -69,6 +73,56 @@ Route::screen('users', UserListScreen::class)
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
         ->push(__('Users'), route('platform.systems.users')));
+
+
+
+Route::screen('admin/{user}/edit', AdminsEditScreen::class)
+    ->name('platform.systems.admin.edit')
+    ->breadcrumbs(fn (Trail $trail, $user) => $trail
+        ->parent('platform.systems.admin')
+        ->push($user->name, route('platform.systems.users.edit', $user)));
+
+// Platform > System > Users > Create
+Route::screen('admin/create', AdminsEditScreen::class)
+    ->name('platform.systems.admin.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.systems.admin')
+        ->push(__('Create'), route('platform.systems.admin.create')));
+
+// Platform > System > Users
+Route::screen('admin', AdminsListScreen::class)
+    ->name('platform.systems.admin')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Admins'), route('platform.systems.admin')));
+
+
+
+Route::screen('staff/{user}/edit', StaffEditScreen::class)
+    ->name('platform.systems.staff.edit')
+    ->breadcrumbs(fn (Trail $trail, $user) => $trail
+        ->parent('platform.systems.staff')
+        ->push($user->name, route('platform.systems.staff.edit', $user)));
+
+// Platform > System > Users > Create
+Route::screen('staff/create', StaffEditScreen::class)
+    ->name('platform.systems.staff.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.systems.staff')
+        ->push(__('Create'), route('platform.systems.staff.create')));
+
+// Platform > System > Users
+Route::screen('staff', StaffListScreen::class)
+    ->name('platform.systems.staff')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Staff'), route('platform.systems.staff')));
+
+
+
+
+
+
 
 // Platform > System > Roles > Role
 Route::screen('roles/{role}/edit', RoleEditScreen::class)

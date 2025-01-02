@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Orchid\Screens\User;
+namespace App\Orchid\Screens\Admins;
 
-use App\Orchid\Layouts\User\UserEditLayout;
-use App\Orchid\Layouts\User\UserFiltersLayout;
-use App\Orchid\Layouts\User\UserListLayout;
+use App\Orchid\Layouts\Admins\AdminsEditLayout;
+use App\Orchid\Layouts\Admins\AdminsFiltersLayout;
+use App\Orchid\Layouts\Admins\AdminsListLayout;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\User;
@@ -15,7 +15,7 @@ use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
-class UserListScreen extends Screen
+class AdminsListScreen extends Screen
 {
     /**
      * Fetch data to be displayed on the screen.
@@ -26,8 +26,8 @@ class UserListScreen extends Screen
     {
         return [
             'users' => User::with('roles')
-                ->where('type', 2)
-                ->filters(UserFiltersLayout::class)
+                ->where('type', 1)
+                ->filters(AdminsFiltersLayout::class)
                 ->defaultSort('id', 'desc')
                 ->paginate(),
         ];
@@ -78,10 +78,10 @@ class UserListScreen extends Screen
     public function layout(): iterable
     {
         return [
-            UserFiltersLayout::class,
-            UserListLayout::class,
+            AdminsFiltersLayout::class,
+            AdminsListLayout::class,
 
-            Layout::modal('editUserModal', UserEditLayout::class)
+            Layout::modal('editUserModal', AdminsEditLayout::class)
                 ->deferred('loadUserOnOpenModal'),
         ];
     }

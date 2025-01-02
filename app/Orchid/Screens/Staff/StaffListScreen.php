@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Orchid\Screens\User;
+namespace App\Orchid\Screens\Staff;
 
-use App\Orchid\Layouts\User\UserEditLayout;
-use App\Orchid\Layouts\User\UserFiltersLayout;
-use App\Orchid\Layouts\User\UserListLayout;
+use App\Orchid\Layouts\Staff\StaffEditLayout;
+use App\Orchid\Layouts\Staff\StaffListLayout;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\User;
@@ -15,7 +14,7 @@ use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
-class UserListScreen extends Screen
+class StaffListScreen extends Screen
 {
     /**
      * Fetch data to be displayed on the screen.
@@ -26,8 +25,8 @@ class UserListScreen extends Screen
     {
         return [
             'users' => User::with('roles')
-                ->where('type', 2)
-                ->filters(UserFiltersLayout::class)
+                ->where('type', 3)
+                ->filters()
                 ->defaultSort('id', 'desc')
                 ->paginate(),
         ];
@@ -78,10 +77,9 @@ class UserListScreen extends Screen
     public function layout(): iterable
     {
         return [
-            UserFiltersLayout::class,
-            UserListLayout::class,
+            StaffListLayout::class,
 
-            Layout::modal('editUserModal', UserEditLayout::class)
+            Layout::modal('editUserModal', StaffEditLayout::class)
                 ->deferred('loadUserOnOpenModal'),
         ];
     }

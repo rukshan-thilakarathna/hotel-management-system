@@ -22,7 +22,7 @@ class RestaurantOrderListScreen extends Screen
     public function query(): iterable
     {
         $orders = RestaurantOrder::with('user')->filters()
-        ->defaultSort('id', 'desc')->get();
+            ->defaultSort('id', 'desc')->get();
 
         return [
             'orders' => $orders
