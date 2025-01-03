@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Web\Pages\aboutController;
+use App\Http\Controllers\Web\Pages\contactController;
+use App\Http\Controllers\Web\Pages\diningController;
 use App\Http\Controllers\Web\Pages\indexController;
+use App\Http\Controllers\Web\Pages\roomsController;
 use App\Http\Controllers\Web\User\dashboardController;
 
 /*
@@ -17,6 +21,10 @@ use App\Http\Controllers\Web\User\dashboardController;
 
 // Public Route
 Route::get('/', [indexController::class, 'index'])->name('index');
+Route::get('/rooms', [roomsController::class, 'index'])->name('rooms');
+Route::get('/about', [aboutController::class, 'index'])->name('about');
+Route::get('/dining', [diningController::class, 'index'])->name('dining');
+Route::get('/contact', [contactController::class, 'index'])->name('contact');
 
 // Routes requiring authentication and email verification
 Route::middleware(['auth', 'verified'])->group(function () {

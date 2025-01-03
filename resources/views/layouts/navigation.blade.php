@@ -17,16 +17,16 @@
                             <a class="nav-link" href="/"><i class="bi bi-list fs-1"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">ABOUT</a>
+                            <a class="nav-link" href="{{ route('about') }}">ABOUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/rooms">ROOMS</a>
+                            <a class="nav-link" href="{{ route('rooms') }}">ROOMS</a>
                         </li>
                         <li class="nav-item text-center">
-                            <a class="navbar-brand" href="#">
+                            <a class="navbar-brand" href="/">
                                 <img src="{{ asset('images/LOGO.jpg') }}" alt="Logo" width="60" height="60">
                             </a>
-                            <div class="brand-text">TRANQUIL TRAILS</div>
+                            {{-- <div class="brand-text">TRANQUIL TRAILS</div> --}}
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/dining">DINING</a>
