@@ -1,0 +1,68 @@
+/* Navbar styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+.navbar {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+
+/* Style for nav links */
+.nav-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white !important;
+    text-align: center;
+}
+
+/* Center logo and brand text */
+.navbar-brand img {
+    display: block;
+    margin: 0 auto;
+}
+
+.brand-text {
+    text-align: center;
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: white;
+    margin-top: -25px;
+}
+
+/* Style for the "BOOK NOW" button */
+.btn-success {
+    font-size: 1rem;
+    font-weight: bold;
+    height: 60px;
+}
+
+/* Default spacing for nav-items (for large screens) */
+.navbar-nav .nav-item {
+    margin: 0 75px;
+}
+
+/* Adjust nav-item spacing for smaller screens */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column; /* Stack items vertically */
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0; /* Vertical margin for small screens */
+    }
+
+    .btn-success {
+        width: 80%; /* Full-width button for smaller screens */
+        margin: 10px auto;
+        height: 80%;
+    }
+}

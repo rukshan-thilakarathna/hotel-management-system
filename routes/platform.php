@@ -20,6 +20,7 @@ use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\RoomBooking\BookingListScreen;
 use App\Orchid\Screens\RoomBooking\RoomAvailabilityListScreen;
+use App\Orchid\Screens\Rooms\bill;
 use App\Orchid\Screens\Rooms\RoomListScreen;
 use App\Orchid\Screens\Rooms\RoomViewScreen;
 use App\Orchid\Screens\Staff\StaffEditScreen;
@@ -158,6 +159,13 @@ Route::screen('rooms/{id}', RoomViewScreen::class)
     ->breadcrumbs(fn (Trail $trail , $id) => $trail
         ->parent('platform.rooms')
         ->push('Room -'. $id->number, route('platform.rooms.view', $id)));
+
+
+Route::screen('rooms/{id}/bill', bill::class)
+    ->name('platform.rooms.bill')
+    ->breadcrumbs(fn (Trail $trail , $id) => $trail
+        ->parent('platform.rooms')
+        ->push('Room -'. $id->number, route('platform.rooms.bill', $id)));
 
 
 // Platform > System > Room Bookings

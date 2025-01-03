@@ -5,6 +5,7 @@ namespace App\Orchid\Layouts\RoomBooking;
 use App\Models\RoomAvailability;
 use App\Models\RoomBooking;
 use App\Models\Rooms;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\TD;
@@ -72,6 +73,17 @@ class RoomBookingListLayout extends Table
           
             TD::make('status', 'Booking Status')
                 ->sort(),
+
+            TD::make('room.created_at', 'Action')
+                ->render(function (RoomBooking $RoomBooking) {
+
+                  
+                return Link::make('Bill')
+                    ->route('platform.rooms.bill', $RoomBooking->room_id)->style('background: #43d76b;border-radius: 5px;padding: 8px;')->icon('eye');
+                })
+                
+                ->sort()
+                ->cantHide(),
                 
         ];
     }

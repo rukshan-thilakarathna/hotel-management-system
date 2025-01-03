@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dining at Our Hotel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      .hero-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      
+      .hero-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      
+      .content {
+        margin-top: -200px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        position: relative;
+      }
+      
+      .content h3 {
+        color: #666;
+        font-weight: normal;
+        margin-bottom: 10px;
+      }
+      
+      .content h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      
+      .content p {
+        color: #666;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      
+      .see-more {
+        color: #0066cc;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 10px;
+        display: inline-block;
+      }44
+      
+      .food-gallery {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      
+      .food-item {
+        flex: 1;
+        text-align: center;
+        background: #f9f9f9;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .food-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      
+      .food-item p {
+        margin: 0;
+        padding: 10px;
+        background: #333;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      
+</style>
+<body>
+  <div class="container">
+    <div class="hero-section">
+      <img src="dining.jpg" alt="Dining Table" class="hero-image">
+      <div class="content">
+        <h3>Dining at our Hotel</h3>
+        <h1>Fresh ingredients, Bold flavors, Unforgettable dining</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur. Sapien id diam nulla molestie justo quisque 
+          maecenas. Quis nulla feugiat eu magna mi amet. Erat nunc ut auctor id suscipit cursus 
+          purus lacinia donec. Turpis et mattis pellentesque orci dapibus turpis cras viverra 
+          suspendisse. Dolor proin laoreet quis laoreet blandit egestas purus eget.
+        </p>
+        <a href="#" class="see-more">SEE MORE ...</a>
+      </div>
+      <div class="food-gallery">
+        <div class="food-item">
+          <img src="food1.jpg" alt="Sri Lankan Food">
+          <p>SRI LANKAN</p>
+        </div>
+        <div class="food-item">
+          <img src="food2.jpg" alt="Italian Food">
+          <p>ITALIAN</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
