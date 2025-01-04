@@ -8,7 +8,12 @@
                         <!-- Date Range -->
                         <div class="col-md-4 text-white">
                             <label for="dateRange" class="form-label">Check-in & Check-out</label>
-                            <input type="text" class="form-control" name="dateRange" id="dateRange" placeholder="YYYY-MM-DD - YYYY-MM-DD">
+                            <input  type="text" 
+                                value="{{ session('checkin_date') ?? \Carbon\Carbon::now()->format('Y-m-d') }} - {{ session('checkout_date') ?? \Carbon\Carbon::now()->addDay()->format('Y-m-d') }}" 
+                                class="form-control" 
+                                name="dateRange" 
+                                id="dateRange" 
+                                placeholder="YYYY-MM-DD - YYYY-MM-DD">
                         </div>
                         <!-- City -->
                         <div class="col-md-4 text-white">

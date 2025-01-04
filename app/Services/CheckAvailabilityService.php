@@ -11,16 +11,20 @@ class  CheckAvailabilityService
     {
         $currentDate = strtotime(date("Y-m-d"));
 
+     
+
         if ($currentDate <= $checkIn && $currentDate <= $checkOut && $checkIn <= $checkOut) {
 
             $dates = $this->getDate($checkIn,$checkOut);
             $rooms = RoomAvailability::select('room_id')->with('room')
             ->whereHas('room', function ($query) use ($filter) {
-                foreach ($filter as $key => $value) {
-                    if ($key == 'price'){
-                        $query->whereBetween('price', [$value[0], $value[1]]);
-                    }else{
-                        $query->where($key, $value);
+                if($filter != null){
+                    foreach ($filter as $key => $value) {
+                        if ($key == 'price'){
+                            $query->whereBetween('price', [$value[0], $value[1]]);
+                        }else{
+                            $query->where($key, $value);
+                        }
                     }
                 }
             });

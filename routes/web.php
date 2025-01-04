@@ -32,6 +32,7 @@ Route::get('/contact', [contactController::class, 'index'])->name('contact');
 // Routes requiring authentication and email verification
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
+    // Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
 });
 
 // Routes requiring authentication only

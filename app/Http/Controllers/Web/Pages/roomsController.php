@@ -31,9 +31,15 @@ class roomsController extends Controller
      */
     public function index(Request $request) 
     {
+
+  
         $this->rooms = Rooms::get();    
 
+        $availabilityStatus = false;
+
         if($request->input('dateRange') || ($request->input('checkIn') && $request->input('checkIn'))){
+
+            $availabilityStatus = true;
 
             if($request->input('dateRange')){
                 list($checkin_date, $checkout_date) = explode(' - ', $request->input('dateRange'));
@@ -47,58 +53,64 @@ class roomsController extends Controller
             $checkIn = strtotime($checkin_date);
             $checkOut = strtotime($checkout_date);
 
-            $filterData = [];
+      
 
-            if($request->input('ac') == 1 || $request->input('ac') == 0){
-                $filterData['ac'] = $request->input('ac');
-            }
+            $filterData = null;
 
-            if($request->input('free_wifi')){
-                $filterData['free_wifi'] = $request->input('free_wifi');
-            }
-            
-            if($request->input('parking')){
-                $filterData['parking'] = $request->input('parking');
-            }
+            if($request->input('filter')){
+                $filterData = [];
 
-            if($request->input('restaurant')){
-                $filterData['restaurant'] = $request->input('restaurant');
-            }
+                if($request->input('ac') == 1 || $request->input('ac') == 0){
+                    $filterData['ac'] = $request->input('ac');
+                }
 
-            if($request->input('pet_friendly')){
-                $filterData['pet_friendly'] = $request->input('pet_friendly');
-            }
+                if($request->input('free_wifi')){
+                    $filterData['free_wifi'] = $request->input('free_wifi');
+                }
+                
+                if($request->input('parking')){
+                    $filterData['parking'] = $request->input('parking');
+                }
 
-            if($request->input('room_service')){
-                $filterData['room_service'] = $request->input('room_service');
-            }
+                if($request->input('restaurant')){
+                    $filterData['restaurant'] = $request->input('restaurant');
+                }
 
-            if($request->input('smoking')){
-                $filterData['smoking'] = $request->input('smoking');
-            }
+                if($request->input('pet_friendly')){
+                    $filterData['pet_friendly'] = $request->input('pet_friendly');
+                }
 
-            if($request->input('wheelchair_accessible')){
-                $filterData['wheelchair_accessible'] = $request->input('wheelchair_accessible');
-            }
+                if($request->input('room_service')){
+                    $filterData['room_service'] = $request->input('room_service');
+                }
 
-            if($request->input('swimming_pool')){
-                $filterData['swimming_pool'] = $request->input('swimming_pool');
-            }
+                if($request->input('smoking')){
+                    $filterData['smoking'] = $request->input('smoking');
+                }
 
-            if($request->input('hours_security')){
-                $filterData['hours_security'] = $request->input('hours_security');
-            }
+                if($request->input('wheelchair_accessible')){
+                    $filterData['wheelchair_accessible'] = $request->input('wheelchair_accessible');
+                }
 
-            if($request->input('front_desk')){
-                $filterData['front_desk'] = $request->input('front_desk');
-            }
+                if($request->input('swimming_pool')){
+                    $filterData['swimming_pool'] = $request->input('swimming_pool');
+                }
 
-            if($request->input('bed')){
-                $filterData['bed'] = $request->input('bed');
-            }
+                if($request->input('hours_security')){
+                    $filterData['hours_security'] = $request->input('hours_security');
+                }
 
-            if($request->input('minprice') && $request->input('maxprice')){
-                $filterData['price'] = [$request->input('minprice'), $request->input('maxprice')];
+                if($request->input('front_desk')){
+                    $filterData['front_desk'] = $request->input('front_desk');
+                }
+
+                if($request->input('bed')){
+                    $filterData['bed'] = $request->input('bed');
+                }
+
+                if($request->input('minprice') && $request->input('maxprice')){
+                    $filterData['price'] = [$request->input('minprice'), $request->input('maxprice')];
+                }
             }
 
            
@@ -123,12 +135,12 @@ class roomsController extends Controller
                     session()->put('checkin_date', date('Y-m-d'));
                     session()->put('checkout_date', date('Y-m-d', strtotime('+1 day')));
 
-                    if($request->input('from_page') && $request->input('from_page') == 'rooms'){
-                        return redirect()->route($request->input('from_page'))
-                        ->with('warning', 'No rooms available');
-                    }
+                    // if($request->input('from_page') && $request->input('from_page') == 'rooms'){
+                    //     return redirect()->route($request->input('from_page'))
+                    //     ->with('warning', 'No rooms available');
+                    // }
 
-                    return redirect()->route('index')
+                    return redirect()->back()
                     ->with('warning', 'No rooms available');
                 }
 
@@ -138,18 +150,18 @@ class roomsController extends Controller
                 session()->put('checkin_date', date('Y-m-d'));
                 session()->put('checkout_date', date('Y-m-d', strtotime('+1 day')));
 
-                if($request->input('from_page') && $request->input('from_page') == 'rooms'){
-                    return redirect()->route($request->input('from_page'), [$checkin_date, $checkout_date])
-                    ->with('error', $availability['message']);
-                }
-                return redirect()->route('index', [$checkin_date, $checkout_date])
+                // if($request->input('from_page') && $request->input('from_page') == 'rooms'){
+                //     return redirect()->route($request->input('from_page'), [$checkin_date, $checkout_date])
+                //     ->with('error', $availability['message']);
+                // }
+                return redirect()->back()
                 ->with('error', $availability['message']);
                
             }
         }
 
 
-        return view('rooms')->with(['rooms' => $this->rooms, 'checkin' => $checkin ?? 0, 'checkout' => $checkout ?? 0]); 
+        return view('rooms')->with([ 'availabilityStatus' => $availabilityStatus ,'rooms' => $this->rooms, 'checkin' => $checkin ?? 0, 'checkout' => $checkout ?? 0]); 
     }
 
 

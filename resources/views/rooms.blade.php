@@ -1,32 +1,15 @@
 <x-app-layout>
-        @if (session('error'))
-            <script>
-                Swal.fire({
-                    title: "Error!",
-                    text: "{{ session('error') }}",
-                    icon: "error",
-                    confirmButtonText: "OK"
-                });
-            </script>
-        @endif
-
-        @if (session('warning'))
-            <script>
-                Swal.fire({
-                    title: "warning!",
-                    text: "{{ session('warning') }}",
-                    icon: "warning",
-                    confirmButtonText: "OK"
-                });
-            </script>
-        @endif
-    <!-- Hero Section -->
-    <section class="hero-section position-relative text-white text-center d-flex" style="height: 80vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
+    <section class="hero-section position-relative text-white text-center d-flex" style="display: flex; height: 80vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
         <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
-            <div class="hero-content text-center">
-                <h1 class="display-4 fw-bold">Rooms</h1>
-                <p class="lead">Home/Rooms</p>
-            </div>
+             <!-- Hero Text -->
+             <div class="hero-section d-flex justify-content-center align-items-center vh-100">
+                 <div class="hero-content mt-auto">
+                     <h1 class="display-4 fw-bold">Rooms</h1>
+                     <p class="lead">Home/Rooms</p>
+                 </div>
+             </div>
+ 
+             @include('layouts.booking-form')
         </div>
     </section>
 
@@ -37,24 +20,13 @@
                 <!-- Left Side Filters -->
                 <div class="col-lg-3 mb-5">
                     <div class="card p-4 border rounded shadow-sm">
-                        <h5 class="fw-bold mb-4 text-primary">Search</h5>
+                        <h5 class="fw-bold mb-4 text-primary">Filters</h5>
                         <form id="bookingFilter" action="{{ route('rooms') }}" method="GET">
                             @csrf
-                            <!-- Check-in and Check-out -->
-                            <div class="mb-4">
-                                <label for="checkin" class="form-label">Check-In</label>
-                                <input name="checkIn" value="{{ session('checkin_date') ?? date('Y-m-d') }}" type="date" id="checkin" class="form-control">
-                            </div>
-                            <input type="hidden" name="from_page" value="rooms">
-                            <div class="mb-4">
-                                <label for="checkout" class="form-label">Check-Out</label>
-                                <input name="checkOut" value="{{ session('checkout_date') ?? date('Y-m-d', strtotime('+1 day')) }}" type="date" id="checkout" class="form-control">
-                            </div>
-                            
-                            
-                            <!-- Filter Options -->
-                            <h6 class="fw-bold mt-4 mb-3">Filters</h6>
 
+                            <input type="hidden" name="filter" value="1">
+                            <input type="hidden" name="dateRange" value="{{session('checkin_date')}} - {{session('checkout_date')}}">
+                            
                             <!-- Beds -->
                             <div class="mb-3">
                                 <label for="ac" class="form-label">AC Type</label>
@@ -66,7 +38,6 @@
                             </div>
                             
 
-                            
                             <div class="form-check mb-3">
                                 <input onchange="Onchangef()" class="form-check-input" 
                                     <?= isset($_GET['free_wifi']) && $_GET['free_wifi'] == 1 ? 'checked' : '' ?> 
@@ -285,11 +256,12 @@
                                     </div>
                                 </div>
                                 
-                                
-                                
-                                
                             </div>
-                            <button class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100 ">BOOK NOW</button>
+                            @if ($availabilityStatus)
+                                <button class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100 ">BOOK NOW</button>
+                            @else
+                                <span class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100 ">First Check Availability After Book This Room</span>
+                            @endif
                         </div>
                     @endforeach
                 </div>

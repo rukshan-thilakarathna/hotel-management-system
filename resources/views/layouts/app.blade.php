@@ -28,6 +28,28 @@
         
             @include('layouts.navigation')
 
+            @if (session('error'))
+                <script>
+                    Swal.fire({
+                        title: "Error!",
+                        text: "{{ session('error') }}",
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    });
+                </script>
+            @endif
+
+            @if (session('warning'))
+                <script>
+                    Swal.fire({
+                        title: "warning!",
+                        text: "{{ session('warning') }}",
+                        icon: "warning",
+                        confirmButtonText: "OK"
+                    });
+                </script>
+            @endif
+
             {{ $slot }}
 
             @include('layouts.footer')
