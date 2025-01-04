@@ -19,12 +19,15 @@ use App\Http\Controllers\Web\User\dashboardController;
 |--------------------------------------------------------------------------
 */
 
-// Public Route
+
+
+// Public Route - Get
 Route::get('/', [indexController::class, 'index'])->name('index');
-Route::get('/rooms', [roomsController::class, 'index'])->name('rooms');
+Route::get('/rooms/{checkin?}/{checkout?}', [roomsController::class, 'index'])->name('rooms');
 Route::get('/about', [aboutController::class, 'index'])->name('about');
 Route::get('/dining', [diningController::class, 'index'])->name('dining');
 Route::get('/contact', [contactController::class, 'index'])->name('contact');
+
 
 // Routes requiring authentication and email verification
 Route::middleware(['auth', 'verified'])->group(function () {

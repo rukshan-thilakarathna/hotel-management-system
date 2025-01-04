@@ -1,4 +1,14 @@
 <x-app-layout>
+        @if (session('error'))
+            <script>
+                Swal.fire({
+                    title: "Error!",
+                    text: "{{ session('error') }}",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
+            </script>
+        @endif
      <!-- Hero Section -->
      <section class="hero-section position-relative text-white text-center d-flex" style="display: flex; height: 80vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
         <div class="container h-100 d-flex flex-column justify-content-center align-items-center">

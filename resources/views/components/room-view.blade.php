@@ -36,7 +36,7 @@
                                     class="btn btn-link icon-link" 
                                     type="submit" 
                                     form="post-form" 
-                                    formaction="{{ config('app.url')}}admin/rooms/{{$room->id}}/deleteimage?id={{$room->id}}&image={{$image}}">
+                                    formaction="{{ env('APP_URL')}}admin/rooms/{{$room->id}}/deleteimage?id={{$room->id}}&image={{$image}}">
                                     Delete
                                 </button>
                             </div>

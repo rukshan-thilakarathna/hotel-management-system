@@ -81,31 +81,42 @@ class RoomViewScreen extends Screen
     }
 
     public function uploadImage(Request $request): void
-    {
-        $room = Rooms::findOrFail($request->id);
-        $existingImages = json_decode($room->image, true) ?? []; // Decode existing images, default to empty array
+{
+    // Find the room by ID or fail
+    $room = Rooms::findOrFail($request->id);
 
-        if ($request->hasFile('image')) {
-            $newImages = [];
-            
-            foreach ($request->file('image') as $uploadedFile) {
-                $filename = str_replace(' ', '_', $uploadedFile->getClientOriginalName()); // Replace spaces with underscores
-                $newImages[] = $filename;
-                
-                // Store the file in the 'rooms' directory
-                $uploadedFile->storeAs('rooms', $filename, 'public');
-            }
-            
-            // Merge existing images with new ones
-            $allImages = array_merge($existingImages, $newImages);
+    // Decode existing images, default to an empty array if null
+    $existingImages = json_decode($room->image, true) ?? [];
 
-            // Save updated images as JSON
-            $room->image = json_encode($allImages);
-            $room->save();
+    if ($request->hasFile('image')) {
+        $newImages = [];
 
-            Toast::info(__('Images were updated'));
+        foreach ($request->file('image') as $uploadedFile) {
+            // Generate a unique filename with the original extension
+            $extension = $uploadedFile->getClientOriginalExtension();
+            $filename = uniqid('room_', true) . '.' . $extension;
+
+            // Store the file in the 'rooms' directory under 'public'
+            $uploadedFile->storeAs('rooms', $filename, 'public');
+
+            // Add the filename to the new images array
+            $newImages[] = $filename;
         }
+
+        // Merge existing images with new ones
+        $allImages = array_merge($existingImages, $newImages);
+
+        // Save updated images as JSON
+        $room->image = json_encode($allImages);
+        $room->save();
+
+        // Show a success message using Toast
+        Toast::info(__('Images were updated successfully.'));
+    } else {
+        Toast::error(__('No image files were uploaded.'));
     }
+}
+
 
     public function deleteimage(Request $request): void
     {

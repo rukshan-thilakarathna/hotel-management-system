@@ -121,7 +121,7 @@
                     </tr>
                 </tfoot>
             </table>
-            <button data-controller="button" data-turbo="true" type="submit" class="btn btn-primary mt-3" form="post-form" formaction="http://localhost:8000/admin/restaurant-place-order/save">Place Order</button>
+            <button data-controller="button" data-turbo="true" type="submit" class="btn btn-primary mt-3" form="post-form" formaction="{{ env('APP_URL')}}admin/restaurant-place-order/save">Place Order</button>
 
 </button>
         </div>

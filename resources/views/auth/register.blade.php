@@ -1,52 +1,52 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+    <div class="card shadow-lg p-4 text-light" style="max-width: 600px; background-color: rgba(255, 255, 255, 0.8); border-radius: 15px; width:400px;">
+        <div class="card-body">
+            <!-- Tabs -->
+            <ul class="nav nav-tabs justify-content-center mb-4" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active text-dark fw-bold" id="guest-tab" data-bs-toggle="tab" data-bs-target="#guest" type="button" role="tab" aria-controls="guest" aria-selected="true">
+                        Guest Registration
+                    </button>
+                </li>
+            </ul>
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="guest" role="tabpanel" aria-labelledby="guest-tab">
+                    <div class="text-center mb-3">
+                        <i class="bi bi-person-fill text-primary" style="font-size: 2.5rem;"></i>
+                        <h4 class="fw-bold mt-2 text-dark">Create Your Account</h4>
+                        <p class="text-muted">Sign up to enjoy your stay with us.</p>
+                    </div>
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-bold text-dark">Name</label>
+                            <input type="text" class="form-control bg-light border border-secondary" id="name" name="name" :value="old('name')" required autofocus placeholder="Enter your name">
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" style="margin-top: .5rem !important; color: red;" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold text-dark">Email</label>
+                            <input type="email" class="form-control bg-light border border-secondary" id="email" name="email" :value="old('email')" required placeholder="Enter your email">
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" style="margin-top: .5rem !important; color: red;" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-bold text-dark">Password</label>
+                            <input type="password" class="form-control bg-light border border-secondary" id="password" name="password" required placeholder="Enter your password">
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" style="margin-top: .5rem !important; color: red;" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password_confirmation" class="form-label fw-bold text-dark">Repeat Password</label>
+                            <input type="password" class="form-control bg-light border border-secondary" id="password_confirmation" name="password_confirmation" required placeholder="Repeat your password">
+                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" style="margin-top: .5rem !important; color: red;" />
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2">Register</button>
+                        <div class="text-center mt-3 text-dark">
+                            <small>Already have an account? <a href="{{ route('login') }}" class="text-decoration-none text-primary fw-bold">Sign In</a></small>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
+    </div>
 </x-guest-layout>
