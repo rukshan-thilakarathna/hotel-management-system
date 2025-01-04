@@ -16,7 +16,7 @@ class dashboardController extends Controller
          */
     /******  fd48d944-9635-4663-ac78-3de842ef93ea  *******/ 
     public function index(){
-        return view('dashboard');
+        return view('profile.index');
     }
 
 }

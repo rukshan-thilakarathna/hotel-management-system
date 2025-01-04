@@ -2,6 +2,7 @@
 
 namespace App\Orchid\Screens\RoomBooking;
 
+use App\Models\Rooms;
 use App\Models\User;
 use App\Orchid\Layouts\RoomBooking\RoomAvailabilityListLayout;
 use App\Services\CheckAvailabilityService;
@@ -125,6 +126,8 @@ class RoomAvailabilityListScreen extends Screen
     public function placeBookingForm($checkin, $checkout,Request $request ,$room_id)
     {
 
+        $room = Rooms::where('id',$room_id)->first();
+
         $bookingData = [
             'checkin' => $checkin,
             'checkout' => $checkout,
@@ -132,6 +135,7 @@ class RoomAvailabilityListScreen extends Screen
             'checkout_time' => '12.00 PM',
             'user_id' => $request->user_id ?? auth()->user()->id,
             'room_id' => $room_id,
+            'room_number' => $room->number,
             'booking_type' => 'Offline',
             'adults' => $request->adults,
             'status' => $request->payment == '0' ? 'Pending' : 'Confirmed',

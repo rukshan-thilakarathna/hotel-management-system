@@ -126,7 +126,7 @@ class  RoomBookingService
                     // Dispatch the email to the queue
                     $bookingDetails = [
                         'user_name' => $bookUser->name,
-                        'room_id' => $bookingData['room_id'],
+                        'room_id' => $bookingData['room_number'],
                         'checkin' => date("Y-m-d", $bookingData['checkin']),
                         'checkout' => date("Y-m-d", $bookingData['checkout']),
                         'adults' => $bookingData['adults'],

@@ -1,6 +1,6 @@
 <x-app-layout>
      <!-- Hero Section -->
-     <section class="hero-section position-relative text-white text-center d-flex" style="display: flex; height: 80vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
+     <section class="hero-section position-relative text-white text-center d-flex" style="display: flex; height: 60vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
         <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
             <!-- Hero Text -->
             <div class="hero-section d-flex justify-content-center align-items-center vh-100">
