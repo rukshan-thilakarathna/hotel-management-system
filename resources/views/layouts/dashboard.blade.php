@@ -19,13 +19,13 @@
          <div class="navbar-collapse justify-content-center">
              <ul class="navbar-nav">
                  <li class="nav-item">
-                     <a class="nav-link text-dark fw-semibold d-flex align-items-center py-2 px-3 rounded-3 border border-0 border-hover-primary transition-all duration-200 hover-shadow-lg" href="#" style="font-size: 1rem;">
+                     <a class="nav-link text-dark fw-semibold d-flex align-items-center py-2 px-3 rounded-3 border border-0 border-hover-primary transition-all duration-200 hover-shadow-lg" href="{{ route('dashboard') }}" style="font-size: 1rem;">
                          <i class="fas fa-user text-primary me-2"></i>
                          <span class="d-none d-sm-inline text-black">Dashboard</span>
                      </a>
                  </li>
                  <li class="nav-item ms-4">
-                     <a class="nav-link text-dark fw-semibold d-flex align-items-center py-2 px-3 rounded-3 border border-0 border-hover-primary transition-all duration-200 hover-shadow-lg" href="/checkout" style="font-size: 1rem;">
+                     <a class="nav-link text-dark fw-semibold d-flex align-items-center py-2 px-3 rounded-3 border border-0 border-hover-primary transition-all duration-200 hover-shadow-lg" href="{{ route('my-bookings') }}" style="font-size: 1rem;">
                          <i class="fas fa-ticket-alt text-primary me-2"></i>
                          <span class="d-none d-sm-inline text-black">My Bookings</span>
                      </a>

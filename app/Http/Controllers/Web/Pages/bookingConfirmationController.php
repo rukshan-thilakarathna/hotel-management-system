@@ -59,11 +59,12 @@ class bookingConfirmationController extends Controller
         $result = $this->roomBooking->RoomBooking($bookingData);
 
         if ($result['status'] === 'success') {
-            return redirect()->route('index')->with('success', $result['message']);
+            return redirect()->route('my-bookings')->with('success', $result['message']);
         }else{
             return redirect()->route('rooms')->with('error', $result['message']);
         }
 
   }
+
 
 }

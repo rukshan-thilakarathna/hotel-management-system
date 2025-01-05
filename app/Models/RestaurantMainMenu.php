@@ -17,10 +17,16 @@ class RestaurantMainMenu extends Model
 
     protected $fillable = [
         'name',
+        'main_menu_id',
         'url',
         'image',
         'price',
         'weight',
         'discount',
     ];
+
+    public function subDishes()
+    {
+        return $this->hasMany(RestaurantMenu::class, 'main_menu_id', 'id');
+    }
 }
