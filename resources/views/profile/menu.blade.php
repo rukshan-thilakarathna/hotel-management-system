@@ -8,7 +8,6 @@
 
             <!-- Menu Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Display Main Dishes and Desserts -->
                 @php
                     $menus = [
                         ['title' => 'Main Dishes', 'data' => \App\Models\RestaurantMainMenu::where('is_desserts', '0')->with('subDishes')->get()],
@@ -30,6 +29,7 @@
                                                 <span class="font-semibold">Rs.{{ number_format($subDish->price, 2) }}</span>
                                                 <input type="checkbox" class="menu-item w-6 h-6 text-green-500 rounded focus:ring-green-300" 
                                                        data-name="{{ $subDish->name }}" 
+                                                       data-id="{{ $subDish->id }}"
                                                        data-price="{{ $subDish->price }}">
                                             </div>
                                         @endforeach
@@ -63,11 +63,15 @@
                 </table>
             </div>
             <div class="mt-6 text-right">
-                <h4 class="text-xl font-semibold">Total: <span id="total-price" class="text-green-400">Rs.0.00</span></h4>
+                <h4 class="text-xl font-semibold">Service Charge: <span id="service-charge" class="text-green-400">Rs.{{ env('SERVICE_CHARGE') }}</span></h4>
+                <h4 class="text-xl font-semibold">VAT: <span id="vat" class="text-green-400">Rs.{{ env('VAT') }}</span></h4>
+                <h4 class="text-xl font-semibold">Grand Total: <span id="grand-total" class="text-green-400">Rs.0.00</span></h4>
+                <input type="hidden" name="total_price" id="total_price">
             </div>
             <button id="place-order-btn" class="mt-4 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg font-bold shadow-lg transition">
                 Place Order
             </button>
+            <input type="hidden" name="booking_id" value="{{ $booking_id }}">
         </div>
     </div>
 
@@ -75,31 +79,39 @@
     <script>
         const menuItems = document.querySelectorAll('.menu-item');
         const orderList = document.getElementById('order-list');
-        const totalPriceEl = document.getElementById('total-price');
+        const serviceCharge = parseFloat({{ env('SERVICE_CHARGE') }});
+        const vat = parseFloat({{ env('VAT') }});
+        const serviceChargeEl = document.getElementById('service-charge');
+        const vatEl = document.getElementById('vat');
+        const grandTotalEl = document.getElementById('grand-total');
+        const totalInput = document.getElementById('total_price');
         let orders = [];
 
         const updateOrders = () => {
             orderList.innerHTML = '';
-            let total = 0;
+            let subtotal = 0;
 
             orders.forEach((order, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td class="p-3">${order.name}</td>
-                    <td class="p-3">Rs.${order.price.toFixed(2)}</td>
+                    <td class="p-3">${order.name} <input type="hidden" name="menu[]" value="${order.id}"></td>
+                    <td class="p-3">Rs.${order.price.toFixed(2)} <input type="hidden" name="price[]" value="${order.price}"></td>
                     <td class="p-3">
-                        <input type="number" class="quantity-input w-16 bg-gray-700 text-white rounded text-center" min="1" value="${order.quantity}" data-index="${index}">
+                        <input type="number" name="quantity[]" class="quantity-input w-16 bg-gray-700 text-white rounded text-center" min="1" value="${order.quantity}" data-index="${index}">
                     </td>
                     <td class="p-3">Rs.${(order.price * order.quantity).toFixed(2)}</td>
                 `;
-                total += order.price * order.quantity;
+                subtotal += order.price * order.quantity;
                 orderList.appendChild(row);
             });
 
-            totalPriceEl.textContent = `Rs.${total.toFixed(2)}`;
+            const total = subtotal + serviceCharge + vat;
+            serviceChargeEl.textContent = `Rs.${serviceCharge.toFixed(2)}`;
+            vatEl.textContent = `Rs.${vat.toFixed(2)}`;
+            grandTotalEl.textContent = `Rs.${total.toFixed(2)}`;
+            totalInput.value = total;
 
-            const quantityInputs = document.querySelectorAll('.quantity-input');
-            quantityInputs.forEach(input => {
+            document.querySelectorAll('.quantity-input').forEach(input => {
                 input.addEventListener('input', (e) => {
                     const index = e.target.dataset.index;
                     const newQuantity = parseInt(e.target.value);
@@ -114,18 +126,19 @@
 
         menuItems.forEach(item => {
             item.addEventListener('change', (e) => {
+                const id = e.target.dataset.id;
                 const name = e.target.dataset.name;
                 const price = parseFloat(e.target.dataset.price);
 
                 if (e.target.checked) {
-                    const existingOrder = orders.find(order => order.name === name);
+                    const existingOrder = orders.find(order => order.id === id);
                     if (existingOrder) {
                         existingOrder.quantity++;
                     } else {
-                        orders.push({ name, price, quantity: 1 });
+                        orders.push({ id, name, price, quantity: 1 });
                     }
                 } else {
-                    orders = orders.filter(order => order.name !== name);
+                    orders = orders.filter(order => order.id !== id);
                 }
 
                 updateOrders();
@@ -136,7 +149,7 @@
             if (orders.length > 0) {
                 alert('Order placed successfully!');
                 console.log(orders);
-                // You can send orders to the backend via AJAX here
+                // Send orders to the backend here via AJAX
             } else {
                 alert('Please select items to place an order.');
             }

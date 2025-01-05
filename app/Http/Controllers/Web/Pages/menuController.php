@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class menuController extends Controller
 {
-    public function index()
+    public function index($booking_id)
     {
-        return view('profile.menu');
+        return view('profile.menu')->with(['booking_id' => $booking_id]);
     }
 }

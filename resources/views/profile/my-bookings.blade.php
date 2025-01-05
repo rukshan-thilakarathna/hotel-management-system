@@ -23,7 +23,7 @@
                     <div class="mt-4" style="text-align: center;display: flex;">
                         <a href="#" class="btn btn-outline-primary btn-sm me-2">View Details</a>
                         @if (Carbon\Carbon::now()->between(Carbon\Carbon::createFromTimestamp($bookings[$key]->check_in_date), Carbon\Carbon::createFromTimestamp($bookings[$key]->check_out_date)))
-                            <a href="{{route('menu')}}" class="btn btn-outline-success btn-sm me-2">Order Food</a>
+                            <a href="{{route('menu',$bookings[$key]->id)}}" class="btn btn-outline-success btn-sm me-2">Order Food</a>
                         @endif
 
                         <form id="cancelBookingForm-{{$bookings[$key]->id}}" action="{{ route('cancel-booking') }}" method="POST">
