@@ -25,6 +25,7 @@
                             <input type="text" class="form-control bg-light border border-secondary" id="name" name="name" :value="old('name')" required autofocus placeholder="Enter your name">
                             <x-input-error :messages="$errors->get('name')" class="mt-2" style="margin-top: .5rem !important; color: red;" />
                         </div>
+                        <input type="hidden" name="type" value="2">
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold text-dark">Email</label>
                             <input type="email" class="form-control bg-light border border-secondary" id="email" name="email" :value="old('email')" required placeholder="Enter your email">
