@@ -4,7 +4,8 @@
         @csrf
 
         <input type="hidden" name="filter" value="1">
-        <input type="hidden" name="dateRange" value="{{session('checkin_date')}} - {{session('checkout_date')}}">
+        <input type="hidden" name="dateRange" value="{{ session('checkin_date') ?? now()->format('Y-m-d') }} - {{ session('checkout_date') ?? now()->addDay()->format('Y-m-d') }}">
+
         
         <!-- Beds -->
         <div class="mb-3">
@@ -85,6 +86,7 @@
         <div class="mb-3">
             <label for="beds" class="form-label">Beds</label>
             <select onchange="Onchangef()" class="form-select" name="bed" id="beds">
+                <option>Both</option>
                 <option @if (isset($_GET['bed']) && $_GET['bed'] == 1) selected @endif value="1">1 Bed</option>
                 <option @if (isset($_GET['bed']) && $_GET['bed'] == 2) selected @endif value="2">2 Beds</option>
                 <option @if (isset($_GET['bed']) && $_GET['bed'] == 3) selected @endif value="3">3 Beds</option>
