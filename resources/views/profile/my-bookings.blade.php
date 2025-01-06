@@ -25,12 +25,14 @@
                         @if (Carbon\Carbon::now()->between(Carbon\Carbon::createFromTimestamp($bookings[$key]->check_in_date), Carbon\Carbon::createFromTimestamp($bookings[$key]->check_out_date)))
                             <a href="{{route('menu',$bookings[$key]->id)}}" class="btn btn-outline-success btn-sm me-2">Order Food</a>
                         @endif
+                        @if (Carbon\Carbon::now()->lt(Carbon\Carbon::createFromTimestamp($bookings[$key]->check_in_date)))
+                            <form id="cancelBookingForm-{{$bookings[$key]->id}}" action="{{ route('cancel-booking') }}" method="POST">
+                                <input type="hidden" name="id" value="{{$bookings[$key]->id}}">
+                                @csrf
+                                <button type="button" class="btn btn-outline-danger btn-sm cancelBookingBtn" data-bs-toggle="modal" data-bs-target="#cancelBookingModal-{{$bookings[$key]->id}}">Cancel Booking</button>
+                            </form>
+                        @endif
 
-                        <form id="cancelBookingForm-{{$bookings[$key]->id}}" action="{{ route('cancel-booking') }}" method="POST">
-                            <input type="hidden" name="id" value="{{$bookings[$key]->id}}">
-                            @csrf
-                            <button type="button" class="btn btn-outline-danger btn-sm cancelBookingBtn" data-bs-toggle="modal" data-bs-target="#cancelBookingModal-{{$bookings[$key]->id}}">Cancel Booking</button>
-                        </form>
                     </div>
                 </div>
             </div>
