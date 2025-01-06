@@ -18,7 +18,7 @@
                         <!-- City -->
                         <div class="col-md-4 text-white">
                             <label for="city" class="form-label">City</label>
-                            <input type="text" class="form-control text-black" id="city" placeholder="City">
+                            <input type="text" class="form-control text-black" readonly id="city" placeholder="Dambulla">
                         </div>
                         <!-- Guests -->
                         <div class="col-md-4 text-white">
@@ -49,7 +49,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <hr>
+                                    {{-- <hr>
                                     <li>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <label class="me-2">Rooms</label>
@@ -59,7 +59,7 @@
                                                 <button class="btn btn-outline-secondary btn-sm" id="roomPlus">+</button>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>

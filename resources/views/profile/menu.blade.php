@@ -43,6 +43,8 @@
         </div>
     </div>
 
+    <form action="{{route('restaurant-order')}}" method="Post">
+    @csrf
     <!-- Orders Section -->
     <div class="container mx-auto mt-12">
         <div class="bg-gray-900 rounded-lg shadow-lg p-6 text-white">
@@ -71,8 +73,19 @@
             <button id="place-order-btn" class="mt-4 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg font-bold shadow-lg transition">
                 Place Order
             </button>
-            <input type="hidden" name="booking_id" value="{{ $booking_id }}">
+            @php
+                $orders = \App\Models\RestaurantOrder::max('id');
+            @endphp
+            <input type="hidden" name="booking_id" value="{{ $booking->id }}">
+            <input type="hidden" name="order_number" value="ORDER0{{ $orders ? $orders+1 : 1}}">
+            <input type="hidden" name="name" value="{{ $booking->user->name }}">
+            <input type="hidden" name="order_type" value="Room">
+            <input type="hidden" name="room_number" value="{{ $booking->room->number }}">
+            <input type="hidden" name="service_charge" value="{{ env('SERVICE_CHARGE') }}">
+            <input type="hidden" name="vat" value="{{ env('VAT') }}">
+            
         </div>
+    </form>
     </div>
 
     <!-- JavaScript Logic -->
@@ -145,14 +158,14 @@
             });
         });
 
-        document.getElementById('place-order-btn').addEventListener('click', () => {
-            if (orders.length > 0) {
-                alert('Order placed successfully!');
-                console.log(orders);
-                // Send orders to the backend here via AJAX
-            } else {
-                alert('Please select items to place an order.');
-            }
-        });
+        // document.getElementById('place-order-btn').addEventListener('click', () => {
+        //     if (orders.length > 0) {
+        //         alert('Order placed successfully!');
+        //         console.log(orders);
+        //         // Send orders to the backend here via AJAX
+        //     } else {
+        //         alert('Please select items to place an order.');
+        //     }
+        // });
     </script>
 </x-app-layout>

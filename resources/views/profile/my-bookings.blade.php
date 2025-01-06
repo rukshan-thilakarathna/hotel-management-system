@@ -21,7 +21,7 @@
                     <p class="mb-3"><strong class="text-muted">Check Out Time:</strong> <span class="text-dark">{{$bookings[$key]->check_out_time}}</span></p>
                     <p class="mb-3"><strong class="text-muted">Booking Status:</strong> <span class="badge bg-success">{{$bookings[$key]->status}}</span></p>
                     <div class="mt-4" style="text-align: center;display: flex;">
-                        <a href="#" class="btn btn-outline-primary btn-sm me-2">View Details</a>
+                        <a target="_blank" href="{{route('bill',$bookings[$key]->id)}}" class="btn btn-outline-primary btn-sm me-2">View Bill</a>
                         @if (Carbon\Carbon::now()->between(Carbon\Carbon::createFromTimestamp($bookings[$key]->check_in_date), Carbon\Carbon::createFromTimestamp($bookings[$key]->check_out_date)))
                             <a href="{{route('menu',$bookings[$key]->id)}}" class="btn btn-outline-success btn-sm me-2">Order Food</a>
                         @endif
