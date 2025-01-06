@@ -35,7 +35,14 @@
             <!-- Buttons -->
             <div class="d-flex">
                 <a href="{{route('rooms')}}" type="button" class="btn btn-success me-2">BOOK NOW</a>
-                <a href="{{route('login')}}" type="button" class="btn btn-success">LOGIN</a>
+                @if (Route::has('login'))
+                    
+                    @auth
+                        <a href="{{ url('/dashboard') }}" type="button" class="btn btn-success">DASHBOARD</a>
+                    @else
+                        <a href="{{ route('login') }}" type="button" class="btn btn-success">LOGIN / REGISTER</a>
+                    @endauth
+                @endif
             </div>
         </div>
     </div>
