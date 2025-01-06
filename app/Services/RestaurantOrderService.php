@@ -36,6 +36,7 @@ class RestaurantOrderService
         $newOrder->user_id = $roomBooking->user_id ?? 0; // Use authenticated user ID or fallback
         $newOrder->user_name = $data['name'];
         $newOrder->room_id = $data['room_number'] ?? 0;
+        $newOrder->booking_id = $data['booking_id'] ?? 0;
         $newOrder->type_of_order = $data['order_type'];
         $newOrder->service_charge = $data['service_charge'] ?? 0;
         $newOrder->vat_charge = $data['vat'] ?? 0;

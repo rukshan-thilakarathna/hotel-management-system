@@ -22,6 +22,7 @@ class RestaurantOrder extends Model
         'user_id',
         'user_name',
         'room_id',
+        'booking_id',
         'items',
         'type_of_order',
         'service_charge',
