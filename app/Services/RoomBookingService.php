@@ -138,7 +138,7 @@ class  RoomBookingService
                         'checkout' => date("Y-m-d", $bookingData['checkout']),
                         'adults' => $bookingData['adults'],
                         'children' => $bookingData['children'],
-                        'Only_room_price' => $room->price,
+                        'Only_room_price' => $roomBill->defult_charges,
                     ];
 
                     // Dispatch the email to the queue
