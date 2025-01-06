@@ -14,38 +14,38 @@
 </section>
 
 
-<nav class="navbar1 navbar-expand-lg navbar-light" style="background-color: #f5f5f5; border-bottom: 3px solid #0056b3;">
-     <div class="container-fluid">
-         <div class="navbar-collapse justify-content-center">
-             <ul class="navbar-nav">
-                 <li class="nav-item">
-                     <a class="nav-link text-dark fw-semibold d-flex align-items-center py-2 px-3 rounded-3 border border-0 border-hover-primary transition-all duration-200 hover-shadow-lg" href="{{ route('dashboard') }}" style="font-size: 1rem;">
-                         <i class="fas fa-user text-primary me-2"></i>
-                         <span class="d-none d-sm-inline text-black">Dashboard</span>
-                     </a>
-                 </li>
-                 <li class="nav-item ms-4">
-                     <a class="nav-link text-dark fw-semibold d-flex align-items-center py-2 px-3 rounded-3 border border-0 border-hover-primary transition-all duration-200 hover-shadow-lg" href="{{ route('my-bookings') }}" style="font-size: 1rem;">
-                         <i class="fas fa-ticket-alt text-primary me-2"></i>
-                         <span class="d-none d-sm-inline text-black">My Bookings</span>
-                     </a>
-                 </li>
-                 <li class="nav-item ms-4">
-                     <a class="nav-link text-dark fw-semibold d-flex align-items-center py-2 px-3 rounded-3 border border-0 border-hover-primary transition-all duration-200 hover-shadow-lg" href="/profile" style="font-size: 1rem;">
-                         <i class="fas fa-user text-primary me-2"></i>
-                         <span class="d-none d-sm-inline text-black">Profile</span>
-                     </a>
-                 </li>
-                 <li class="nav-item ms-4">
-                     <a class="nav-link text-dark fw-semibold d-flex align-items-center py-2 px-3 rounded-3 border border-0 border-hover-primary transition-all duration-200 hover-shadow-lg" href="/logout" style="font-size: 1rem;">
-                         <i class="fas fa-sign-out-alt text-primary me-2"></i>
-                         <span class="d-none d-sm-inline text-black">Logout</span>
-                     </a>
-                 </li>
-             </ul>
-         </div>
-         
-     </div>
- </nav>
+<nav class="navbar1 navbar-expand-lg navbar-light bg-light shadow-sm" style="height: 60px;">
+    <div class="container-fluid">
+        <div class="navbar-collapse justify-content-center">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-semibold d-flex align-items-center py-3 px-4 rounded border border-0 transition-all duration-200 hover-shadow-lg" href="{{ route('dashboard') }}" style="font-size: 1.2rem;">
+                        <i class="fas fa-home text-primary me-3" style="font-size: 1.5rem;"></i>
+                        <span class="d-none d-sm-inline text-black">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link text-dark fw-semibold d-flex align-items-center py-3 px-4 rounded border border-0 transition-all duration-200 hover-shadow-lg" href="{{ route('my-bookings') }}" style="font-size: 1.2rem;">
+                        <i class="fas fa-ticket-alt text-success me-3" style="font-size: 1.5rem;"></i>
+                        <span class="d-none d-sm-inline text-black">My Bookings</span>
+                    </a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link text-dark fw-semibold d-flex align-items-center py-3 px-4 rounded border border-0 transition-all duration-200 hover-shadow-lg" href="/profile" style="font-size: 1.2rem;">
+                        <i class="fas fa-user-circle text-warning me-3" style="font-size: 1.5rem;"></i>
+                        <span class="d-none d-sm-inline text-black">Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link text-dark fw-semibold d-flex align-items-center py-3 px-4 rounded border border-0 transition-all duration-200 hover-shadow-lg" href="/logout" style="font-size: 1.2rem;">
+                        <i class="fas fa-sign-out-alt text-danger me-3" style="font-size: 1.5rem;"></i>
+                        <span class="d-none d-sm-inline text-black">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 
  
