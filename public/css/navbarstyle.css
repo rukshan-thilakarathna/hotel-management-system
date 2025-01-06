@@ -1,4 +1,3 @@
-/* Navbar styles */
 html, body {
     margin: 0;
     padding: 0;
@@ -14,10 +13,9 @@ html, body {
     background: rgba(0, 0, 0, 0.7);
 }
 
-
 /* Style for nav links */
 .nav-link {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     color: white !important;
     text-align: center;
@@ -27,6 +25,8 @@ html, body {
 .navbar-brand img {
     display: block;
     margin: 0 auto;
+    padding-top: 12px;
+    padding-bottom: 10px;
 }
 
 .brand-text {
@@ -37,16 +37,20 @@ html, body {
     margin-top: -25px;
 }
 
-/* Style for the "BOOK NOW" button */
+/* Style for buttons */
 .btn-success {
     font-size: 1rem;
     font-weight: bold;
-    height: 60px;
+    height: 40px;
 }
 
-/* Default spacing for nav-items (for large screens) */
+.navbar-brand {
+    margin-right: 90px; /* Adjust the value as needed */
+}
+
+/* Default spacing for nav-items */
 .navbar-nav .nav-item {
-    margin: 0 75px;
+    margin: 0 30px; /* Adjust the value for more/less space between navbar items */
 }
 
 /* Adjust nav-item spacing for smaller screens */
@@ -61,8 +65,8 @@ html, body {
     }
 
     .btn-success {
-        width: 80%; /* Full-width button for smaller screens */
+        width: 100%; /* Full-width button for smaller screens */
         margin: 10px auto;
-        height: 80%;
+        height: auto;
     }
 }

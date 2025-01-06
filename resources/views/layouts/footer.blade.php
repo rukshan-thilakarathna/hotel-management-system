@@ -1,4 +1,19 @@
-<footer class="py-5 mt-0" style="background-color: #e9f7f0;">
+<style>
+    footer {
+        padding-top: 90px; /* Increase top padding */
+        padding-bottom: 30px; /* Optional bottom padding */
+        background-color: #e9f7f0; /* Background color */
+    }
+
+    .bottom-footer {
+        margin-bottom: 0;
+        padding: 15px 0; /* Padding for the bottom footer */
+        background-color: #343a40; /* Dark background */
+        color: white;
+    }
+</style>
+
+<footer>
     <div class="container">
         <div class="row">
             <!-- Logo and Description -->
@@ -53,9 +68,10 @@
 </footer>
 
 <!-- Bottom Footer -->
-<div class="bg-dark text-white text-center py-3" style="margin-bottom: 0;">
+<div class="bottom-footer text-center">
     <small>Copyright © 2024 Tranquil Trails | Design by SATASME</small>
 </div>
+
 
 
 <!-- JavaScript -->
@@ -74,16 +90,21 @@
     });
 
     // JavaScript to handle adult, child, and room count
-    document.getElementById("adultPlus").onclick = () => updateCount("adultCount", 1);
-    document.getElementById("adultMinus").onclick = () => updateCount("adultCount", -1);
-    document.getElementById("childPlus").onclick = () => updateCount("childCount", 1);
-    document.getElementById("childMinus").onclick = () => updateCount("childCount", -1);
-    document.getElementById("roomPlus").onclick = () => updateCount("roomCount", 1);
-    document.getElementById("roomMinus").onclick = () => updateCount("roomCount", -1);
+    document.getElementById("adultPlus").onclick = (e) => handleClick(e, "adultCount", 1);
+    document.getElementById("adultMinus").onclick = (e) => handleClick(e, "adultCount", -1);
+    document.getElementById("childPlus").onclick = (e) => handleClick(e, "childCount", 1);
+    document.getElementById("childMinus").onclick = (e) => handleClick(e, "childCount", -1);
+    document.getElementById("roomPlus").onclick = (e) => handleClick(e, "roomCount", 1);
+    document.getElementById("roomMinus").onclick = (e) => handleClick(e, "roomCount", -1);
+
+    function handleClick(event, id, delta) {
+        event.preventDefault(); // Prevent any default action, like form submission or page reload
+        updateCount(id, delta);
+    }
 
     function updateCount(id, delta) {
         let count = parseInt(document.getElementById(id).innerText);
-        count = Math.max(0, count + delta);  // Ensure count doesn't go below 0
+        count = Math.max(0, count + delta); // Ensure count doesn't go below 0
         document.getElementById(id).innerText = count;
 
         // Update the button label dynamically
@@ -97,6 +118,8 @@
         e.stopPropagation();
     });
 </script>
+
+
 
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
