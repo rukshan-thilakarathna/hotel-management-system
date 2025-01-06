@@ -23,6 +23,6 @@ class indexController extends Controller
     /******  2f01583c-2bbc-4787-87db-e4598182ae90  *******/ 
     public function index(){
         // dd($this->rooms);
-        return view('index');
+        return view('index')->with(['rooms' => $this->rooms]);
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Rooms;
 use App\Orchid\Layouts\Rooms\RoomListLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TextArea;
@@ -108,6 +109,13 @@ class RoomListScreen extends Screen
                     TextArea::make('room.description')
                         ->title('Description'),
 
+                    Group::make([
+                        Input::make('room.image')
+                            ->type('checkbox')
+                            ->vartical()
+                            ->title('parking'),
+                    ]),
+                    
                     Select::make('room.status')
                         ->options([
                             '0'   => 'Close',
