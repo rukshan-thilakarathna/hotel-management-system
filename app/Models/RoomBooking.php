@@ -15,6 +15,7 @@ class RoomBooking extends Model
 
     protected $fillable = [
         'id' ,
+        'bill_id' ,
         'created_at',  
         'updateed_at', 
     ];
@@ -27,6 +28,11 @@ class RoomBooking extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function bill()
+    {
+        return $this->belongsTo(RoomBill::class, 'bill_id');
     }
 
 

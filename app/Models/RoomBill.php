@@ -20,6 +20,8 @@ class RoomBill extends Model
         'user_mobile_number',
         'added_charges',
         'defult_charges',
+        'nights',
+        'one_room_price',
         'other_charges',
         'total_charges',
         'discount',

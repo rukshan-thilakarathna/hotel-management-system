@@ -39,21 +39,16 @@
         <div class="col-md-6">
             <h5>Company Details</h5>
             <p><strong>Name:</strong> Acme Corporation</p>
-            <p><strong>Industry:</strong> Software Development</p>
+            <p><strong>Industry:</strong> Hottel</p>
             <p><strong>Address:</strong> Field 3, Moon</p>
             <p><strong>Phone:</strong> 123.4456.4567</p>
             <p><strong>Email:</strong> mail@acme.com</p>
-            <p><strong>Tax NO:</strong> 123456789</p>
-            <p><strong>Tax Office:</strong> A' Moon</p>
         </div>
         <div class="col-md-6">
             <h5>Customer Details</h5>
             <p><strong>Name:</strong> Microsoft Corporation</p>
-            <p><strong>Industry:</strong> Software Development</p>
-            <p><strong>Address:</strong> One Microsoft Way, Redmond, WA 98052-7329, USA</p>
-            <p><strong>Phone:</strong> (425) 882-8080</p>
             <p><strong>Email:</strong> contact@microsoft.com</p>
-            <p><strong>Tax NO:</strong> 123456789</p>
+            <p><strong>Booking Id:</strong> 500</p>
         </div>
     </div>
 
@@ -72,13 +67,13 @@
             <tbody>
             <tr>
                 <td>
-                    <strong>Lorem Ipsum Dolor</strong><br>
-                    The best lorem in town, try it now or leave forever
+                    <strong>Room Number {{$booking->room->number}}</strong><br>
+                  
                 </td>
-                <td>$18,000.00<br><small>18 Units</small></td>
-                <td>$1,800.00<br><small>Special -10%</small></td>
-                <td>$3,240.00<br><small>VAT 20%</small></td>
-                <td>$19,440.00</td>
+                <td>2000 <br><small>Only R</small></td>
+                <td>01</td>
+                <td>0</td>
+                <td>2000</td>
             </tr>
             
             </tbody>

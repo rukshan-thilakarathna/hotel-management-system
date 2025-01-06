@@ -90,6 +90,8 @@ class  RoomBookingService
                 ];
             }else{
                 $this->BlockRooms($bookingData['room_id'], $bookingData['checkin'], $bookingData['checkout']);
+                $nights = $this->checkAvailability->getDate($bookingData['checkin'], $bookingData['checkout']);
+                $nights = count($nights['DateList']);
 
                  // Create the room bill
                 $roomBill = new RoomBill();
@@ -99,6 +101,11 @@ class  RoomBookingService
                 $roomBill->user_mobile_number = $bookUser->mobile_number ?? ''; // Ensure the key matches database schema
                 $roomBill->added_charges = $additionalChargesJson;
                 $roomBill->defult_charges = $room->price;
+
+                $roomBill->nights = $nights;
+                $roomBill->one_room_price = $room->price;
+                $roomBill->defult_charges = $room->price*$nights;
+
                 $roomBill->other_charges = $totalAdditionalCharges;
                 $roomBill->total_charges = $room->price + $totalAdditionalCharges;
                 $roomBill->discount = 0;
