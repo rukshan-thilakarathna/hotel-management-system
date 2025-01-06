@@ -87,36 +87,39 @@
         <h2 class="text-muted fw-bold mb-4" style="font-size: 40px;">Experience the perfect blend of comfort and luxury <br>in our beautifully designed rooms</h2>
 
         <div id="roomCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                @foreach ($rooms as $key => $room)
-                    @php
-                        $images = json_decode($room->image, true) ?? []; // Decode JSON images
-                    @endphp
-                    <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
-                        <img src="{{ asset('storage/rooms/' . $images[0]) }}" class="d-block w-100" alt="Room Image">
-                        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
-                            <div class="d-flex justify-content-center gap-3">
-                                @foreach ($rooms as $index => $room)
-                                    <button class="btn btn-outline-light" data-bs-target="#roomCarousel" data-bs-slide-to="{{ $index }}">
-                                        ROOM {{ str_pad($room->number, 2, '0', STR_PAD_LEFT) }}
-                                    </button>
-                                @endforeach
-                            </div>
+        <div class="carousel-inner">
+            @foreach ($rooms as $key => $room)
+                @php
+                    $images = json_decode($room->image, true) ?? [];
+                @endphp
+                <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                    <img src="{{ asset('storage/rooms/' . $images[0]) }}" 
+                         class="d-block w-100 img-fluid rounded" 
+                         style="max-height: 650px; object-fit: cover;" 
+                         alt="Room Image">
+                    <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                            @foreach ($rooms as $index => $room)
+                                <button class="btn btn-outline-light btn-sm" data-bs-target="#roomCarousel" data-bs-slide-to="{{ $index }}">
+                                    ROOM {{ str_pad($room->number, 2, '0', STR_PAD_LEFT) }}
+                                </button>
+                            @endforeach
                         </div>
                     </div>
-                @endforeach
-            </div>
-        
-            <!-- Carousel Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                </div>
+            @endforeach
         </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
         
 
         <!-- Description Text -->
