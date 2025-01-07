@@ -26,7 +26,7 @@
                             <label for="guests" class="form-label">Guests</label>
                             <div class="input-group">
                                 <button class="btn btn-outline-secondary dropdown-toggle bg-white text-black" type="button" id="guestButton" data-bs-toggle="dropdown" aria-expanded="false"  style="width:100%;">
-                                    1 Adult, 0 Children
+                                    {{session('adults') ?? 1}} Adult, {{session('children') ?? 0}} Children
                                 </button>
                                 <ul class="dropdown-menu p-3 bg-white" id="guestDropdown">
                                     <li>
@@ -34,7 +34,7 @@
                                             <label class="me-2">Adults</label>
                                             <div class="d-flex align-items-center">
                                                 <button type="button" class="btn btn-outline-secondary btn-sm" id="adultMinus">-</button>
-                                                <span class="mx-2" id="adultCount">1</span>
+                                                <span class="mx-2" id="adultCount">{{session('adults') ?? 1}}</span>
                                                 <button type="button" class="btn btn-outline-secondary btn-sm" id="adultPlus">+</button>
                                             </div>
                                         </div>
@@ -45,7 +45,7 @@
                                             <label class="me-2">Children</label>
                                             <div class="d-flex align-items-center">
                                                 <button type="button" class="btn btn-outline-secondary btn-sm" id="childMinus">-</button>
-                                                <span class="mx-2" id="childCount">0</span>
+                                                <span class="mx-2" id="childCount">{{session('children') ?? 0}}</span>
                                                 <button type="button" class="btn btn-outline-secondary btn-sm" id="childPlus">+</button>
                                             </div>
                                         </div>
