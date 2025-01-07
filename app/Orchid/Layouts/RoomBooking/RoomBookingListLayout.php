@@ -5,7 +5,10 @@ namespace App\Orchid\Layouts\RoomBooking;
 use App\Models\RoomAvailability;
 use App\Models\RoomBooking;
 use App\Models\Rooms;
+use App\Models\User;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\TD;
@@ -31,48 +34,63 @@ class RoomBookingListLayout extends Table
     {
 
         return [
-
             TD::make('room_id', 'Room Id')
                 ->sort()
+                ->filter(Input::make())
                 ->cantHide(),
 
             TD::make('user_id', 'User Id')
-                ->sort(),
-
-            TD::make('user.name', 'User Name')
                 ->sort()
+                ->filter(
+                    Select::make('user')
+                        ->fromModel(User::class, 'id','id')
+                ),
+
+            TD::make('user.email', 'User Email')
+                ->sort()
+                ->filter(
+                    Select::make('user')
+                        ->fromModel(User::class, 'email','id')
+                )
                 ->cantHide(),
 
             TD::make('adults', 'Adults')
                 ->sort()
+                ->filter(Input::make())
                 ->cantHide(),
 
             TD::make('children', 'Children')
                 ->sort()
+                ->filter(Input::make())
                 ->cantHide(),
 
             TD::make('check_in_date', 'Check In Date')
                 ->sort()
+                ->filter(Input::make())
                 ->render(function (RoomBooking $booking) {
                     return  date("Y-m-d", $booking->check_in_date);
                 })
                 ->cantHide(),
 
             TD::make('check_in_time', 'check In Time')
-                ->sort(),
+                ->sort()
+                ->filter(Input::make()),
 
             TD::make('check_out_date', 'Check Out Date')
                 ->sort()
+                ->filter(Input::make())
                 ->render(function (RoomBooking $booking) {
                     return  date("Y-m-d", $booking->check_out_date);
                 })
                 ->cantHide(),
 
             TD::make('check_out_time', 'Check Out Time')
-                ->sort(),
+                ->sort()
+                ->filter(Input::make()),
 
             TD::make('status', 'Booking Status')
-                ->sort(),
+                ->sort()
+                ->filter(Input::make()),
 
             TD::make('room.created_at', 'Action')
                 ->render(function (RoomBooking $RoomBooking) {
@@ -82,7 +100,6 @@ class RoomBookingListLayout extends Table
                     ->route('platform.rooms.bill', $RoomBooking->id)->style('background: #43d76b;border-radius: 5px;padding: 8px;')->icon('eye');
                 })
 
-                ->sort()
                 ->cantHide(),
 
         ];
