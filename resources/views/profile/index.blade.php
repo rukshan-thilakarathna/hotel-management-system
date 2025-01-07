@@ -1,10 +1,13 @@
 <x-app-layout>
 
     @include('layouts.dashboard')
-   
-    <h1 class="text-muted py-5 text-center text-black fw-bold" style="font-size:40px;">Thank You For Choosing Us</h1>
+
+    <style>
+        
+    </style>
 
  <section class="container py-5">
+    <h1 class="text-muted py-5 text-center text-black fw-bold" style="font-size:40px;">Thank You For Choosing Us</h1>
         <div class="row align-items-center">
             <!-- Text Content -->
             <div class="col-md-6 col-12 mb-4 mb-md-0">
