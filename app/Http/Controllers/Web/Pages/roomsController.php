@@ -52,6 +52,10 @@ class roomsController extends Controller
             session()->put('checkout_date', $checkout_date);
             $checkIn = strtotime($checkin_date);
             $checkOut = strtotime($checkout_date);
+            $adults = $request->input('adults') ?? 1;
+            $children = $request->input('children') ?? 0;
+            session()->put('adults', $adults);
+            session()->put('children', $children);
 
 
 
@@ -117,7 +121,7 @@ class roomsController extends Controller
 
 
 
-            $availability = $this->checkAvailability->checkAvailability($checkIn, $checkOut ,0,0,$filterData);
+            $availability = $this->checkAvailability->checkAvailability($checkIn, $checkOut ,$adults,$children,$filterData);
 
 
             if ($availability['status']) {

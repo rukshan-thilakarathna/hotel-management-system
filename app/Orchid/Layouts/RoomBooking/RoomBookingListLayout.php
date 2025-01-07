@@ -72,9 +72,7 @@ class RoomBookingListLayout extends Table
                 })
                 ->cantHide(),
 
-            TD::make('check_in_time', 'check In Time')
-                ->sort()
-                ->filter(Input::make()),
+           
 
             TD::make('check_out_date', 'Check Out Date')
                 ->sort()
@@ -84,15 +82,23 @@ class RoomBookingListLayout extends Table
                 })
                 ->cantHide(),
 
-            TD::make('check_out_time', 'Check Out Time')
-                ->sort()
-                ->filter(Input::make()),
+          
 
             TD::make('status', 'Booking Status')
                 ->sort()
                 ->filter(Input::make()),
 
             TD::make('room.created_at', 'Action')
+                ->render(function (RoomBooking $RoomBooking) {
+
+
+                return Link::make('Bill')
+                    ->route('platform.rooms.bill', $RoomBooking->id)->style('background: #43d76b;border-radius: 5px;padding: 8px;')->icon('eye');
+                })
+
+                ->cantHide(),
+
+                TD::make('room.created_at', 'Action')
                 ->render(function (RoomBooking $RoomBooking) {
 
 
