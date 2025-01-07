@@ -89,13 +89,11 @@
         });
     });
 
-    // JavaScript to handle adult, child, and room count
+    // JavaScript to handle adult and child count
     document.getElementById("adultPlus").onclick = (e) => handleClick(e, "adultCount", 1);
     document.getElementById("adultMinus").onclick = (e) => handleClick(e, "adultCount", -1);
     document.getElementById("childPlus").onclick = (e) => handleClick(e, "childCount", 1);
     document.getElementById("childMinus").onclick = (e) => handleClick(e, "childCount", -1);
-    document.getElementById("roomPlus").onclick = (e) => handleClick(e, "roomCount", 1);
-    document.getElementById("roomMinus").onclick = (e) => handleClick(e, "roomCount", -1);
 
     function handleClick(event, id, delta) {
         event.preventDefault(); // Prevent any default action, like form submission or page reload
@@ -106,6 +104,13 @@
         let count = parseInt(document.getElementById(id).innerText);
         count = Math.max(0, count + delta); // Ensure count doesn't go below 0
         document.getElementById(id).innerText = count;
+
+        // Update hidden input fields
+        if (id === "adultCount") {
+            document.getElementById("hiddenAdultCount").value = count;
+        } else if (id === "childCount") {
+            document.getElementById("hiddenChildCount").value = count;
+        }
 
         // Update the button label dynamically
         const adultCount = parseInt(document.getElementById("adultCount").innerText);

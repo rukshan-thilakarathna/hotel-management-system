@@ -70,21 +70,21 @@ class RoomBookingListLayout extends Table
 
             TD::make('check_out_time', 'Check Out Time')
                 ->sort(),
-          
+
             TD::make('status', 'Booking Status')
                 ->sort(),
 
             TD::make('room.created_at', 'Action')
                 ->render(function (RoomBooking $RoomBooking) {
 
-                  
+
                 return Link::make('Bill')
-                    ->route('platform.rooms.bill', $RoomBooking->room_id)->style('background: #43d76b;border-radius: 5px;padding: 8px;')->icon('eye');
+                    ->route('platform.rooms.bill', $RoomBooking->id)->style('background: #43d76b;border-radius: 5px;padding: 8px;')->icon('eye');
                 })
-                
+
                 ->sort()
                 ->cantHide(),
-                
+
         ];
     }
 }

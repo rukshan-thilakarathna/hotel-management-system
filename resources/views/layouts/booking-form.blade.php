@@ -8,7 +8,8 @@
                         <!-- Date Range -->
                         <div class="col-md-4 text-white">
                             <label for="dateRange" class="form-label">Check-in & Check-out</label>
-                            <input  type="text" 
+                            <input 
+                                type="text" 
                                 value="{{ session('checkin_date') ?? \Carbon\Carbon::now()->format('Y-m-d') }} - {{ session('checkout_date') ?? \Carbon\Carbon::now()->addDay()->format('Y-m-d') }}" 
                                 class="form-control" 
                                 name="dateRange" 
@@ -23,8 +24,8 @@
                         <!-- Guests -->
                         <div class="col-md-4 text-white">
                             <label for="guests" class="form-label">Guests</label>
-                            <div class="input-group ">
-                                <button class="btn btn-outline-secondary dropdown-toggle bg-white text-black" type="button" id="guestButton" data-bs-toggle="dropdown" aria-expanded="false" style="width:100%;">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary dropdown-toggle bg-white text-black" type="button" id="guestButton" data-bs-toggle="dropdown" aria-expanded="false"  style="width:100%;">
                                     1 Adult, 0 Children
                                 </button>
                                 <ul class="dropdown-menu p-3 bg-white" id="guestDropdown">
@@ -32,9 +33,9 @@
                                         <div class="d-flex align-items-center justify-content-between">
                                             <label class="me-2">Adults</label>
                                             <div class="d-flex align-items-center">
-                                                <button class="btn btn-outline-secondary btn-sm" id="adultMinus">-</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm" id="adultMinus">-</button>
                                                 <span class="mx-2" id="adultCount">1</span>
-                                                <button class="btn btn-outline-secondary btn-sm" id="adultPlus">+</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm" id="adultPlus">+</button>
                                             </div>
                                         </div>
                                     </li>
@@ -43,27 +44,21 @@
                                         <div class="d-flex align-items-center justify-content-between">
                                             <label class="me-2">Children</label>
                                             <div class="d-flex align-items-center">
-                                                <button class="btn btn-outline-secondary btn-sm" id="childMinus">-</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm" id="childMinus">-</button>
                                                 <span class="mx-2" id="childCount">0</span>
-                                                <button class="btn btn-outline-secondary btn-sm" id="childPlus">+</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm" id="childPlus">+</button>
                                             </div>
                                         </div>
                                     </li>
-                                    {{-- <hr>
-                                    <li>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <label class="me-2">Rooms</label>
-                                            <div class="d-flex align-items-center">
-                                                <button class="btn btn-outline-secondary btn-sm" id="roomMinus">-</button>
-                                                <span class="mx-2" id="roomCount">1</span>
-                                                <button class="btn btn-outline-secondary btn-sm" id="roomPlus">+</button>
-                                            </div>
-                                        </div>
-                                    </li> --}}
                                 </ul>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Hidden Fields for Adult and Children Counts -->
+                    <input type="hidden" name="adults" id="hiddenAdultCount" value="1">
+                    <input type="hidden" name="children" id="hiddenChildCount" value="0">
+
                     <div class="mt-3 text-center">
                         <button class="btn btn-success w-100">Check availability</button>
                     </div>

@@ -13,10 +13,8 @@ class billController extends Controller
     {
 
         $booking = RoomBooking::where('id', $booking_id)->with('room','user','bill')->first();
-
         $resturant = RestaurantOrder::where('booking_id', $booking_id)->get();
 
-     
-        return view('profile.bill')->with(['booking' => $booking, 'resturantbills' => $resturant]);
+        return view('components.room.bill')->with(['booking' => $booking, 'resturantbills' => $resturant]);
     }
 }

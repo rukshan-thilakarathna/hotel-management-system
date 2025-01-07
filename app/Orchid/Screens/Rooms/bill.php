@@ -2,6 +2,8 @@
 
 namespace App\Orchid\Screens\Rooms;
 
+use App\Models\RestaurantOrder;
+use App\Models\RoomBooking;
 use App\Models\Rooms;
 use App\View\Components\Room\bill as RoomBill;
 use Orchid\Screen\Screen;
@@ -14,9 +16,15 @@ class bill extends Screen
      *
      * @return array
      */
-    public function query(Rooms $id): iterable
+    public function query(RoomBooking $id): iterable
     {
-        return [];
+        $booking = RoomBooking::where('id', $id->id)->with('room','user','bill')->first();
+        $resturant = RestaurantOrder::where('booking_id', $id->id)->get();
+        return [
+            'booking' => $booking,
+            'resturantbills' => $resturant
+
+        ];
     }
 
     /**

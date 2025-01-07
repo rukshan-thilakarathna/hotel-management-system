@@ -165,7 +165,8 @@ Route::screen('rooms/{id}/bill', bill::class)
     ->name('platform.rooms.bill')
     ->breadcrumbs(fn (Trail $trail , $id) => $trail
         ->parent('platform.rooms')
-        ->push('Room -'. $id->number, route('platform.rooms.bill', $id)));
+        ->push('Room -'. $id->id, route('platform.rooms.bill', $id)));
+
 
 
 // Platform > System > Room Bookings

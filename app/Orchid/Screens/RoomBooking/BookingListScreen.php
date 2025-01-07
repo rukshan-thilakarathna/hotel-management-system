@@ -29,9 +29,9 @@ class BookingListScreen extends Screen
 
     public function query(): iterable
     {
-        $AllBookings =  RoomBooking::get();
+        $AllBookings =  RoomBooking::orderBy('created_at', 'desc')->get();
 
-     
+
         return [
             'bookings' => $AllBookings
         ];
