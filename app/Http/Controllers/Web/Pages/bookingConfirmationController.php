@@ -29,12 +29,11 @@ class bookingConfirmationController extends Controller
 
     $request->validate([
         'adults' => 'required|integer|min:1|max:3',
-        'children' => 'required|integer|min:1|max:3',
+        'children' => 'required|integer|max:3',
         'room_id' => 'required',
     ], [
         'adults.min' => 'The number of adults must be at least 1.',
         'adults.max' => 'The number of adults cannot exceed 3.',
-        'children.min' => 'The number of children must be at least 1.',
         'children.max' => 'The number of children cannot exceed 3.',
     ]);
 
