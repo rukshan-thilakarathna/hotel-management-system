@@ -1,6 +1,6 @@
 <x-app-layout>
   <!-- Hero Section -->
-  <section class="hero-section position-relative text-white text-center d-flex" style="display: flex; height: 50vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
+  <section class="hero-section position-relative text-white text-center d-flex font3" style="display: flex; height: 50vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
      <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
          <!-- Hero Text -->
          <div class="hero-section d-flex justify-content-center align-items-center vh-100">
@@ -12,9 +12,7 @@
      </div>
  </section>
 
-
-
- <section id="contact" class="py-5 bg-light">
+ <section id="contact" class="py-5 bg-light font3">
   <div class="container">
       <div class="row align-items-center">
           <!-- Left Column: Text and Information -->
@@ -23,19 +21,19 @@
               <p class="text-muted">
                   We'd love to hear from you. Feel free to reach out for reservations, inquiries, or assistance. Our team is here to help!
               </p>
-              <ul class="list-unstyled">
-                  <li class="mb-3">
-                      <i class="bi bi-envelope-fill text-success me-2"></i>
-                      <strong>Email:</strong> tranquiltrails@gmail.com
-                  </li>
-                  <li class="mb-3">
-                      <i class="bi bi-telephone-fill text-success me-2"></i>
-                      <strong>Phone:</strong> (+94) 112 933 333
-                  </li>
-                  <li class="mb-3">
-                      <i class="bi bi-geo-alt-fill text-success me-2"></i>
-                      <strong>Address:</strong> No. 101, Dambulla, Sri Lanka
-                  </li>
+              <ul class="list-unstyled new-btn-colo">
+                <li class="mb-3">
+                    <i class="bi bi-envelope-fill custom-color me-2"></i>
+                    <strong>Email:</strong> tranquiltrails@gmail.com
+                </li>
+                <li class="mb-3">
+                    <i class="bi bi-telephone-fill custom-color me-2"></i>
+                    <strong>Phone:</strong> (+94) 112 933 333
+                </li>
+                <li class="mb-3">
+                    <i class="bi bi-geo-alt-fill custom-color me-2"></i>
+                    <strong>Address:</strong> No. 101, Dambulla, Sri Lanka
+                </li>
               </ul>
               <h5 class="fw-bold mt-4">Follow Us</h5>
               <div>
@@ -62,7 +60,7 @@
                           <label for="message" class="form-label">Message</label>
                           <textarea id="message" class="form-control" rows="4" placeholder="Your message" required></textarea>
                       </div>
-                      <button type="submit" class="btn btn-success w-100">Send Message</button>
+                      <button type="submit" class="btn btn-success w-100 new-btn-color">Send Message</button>
                   </form>
               </div>
           </div>

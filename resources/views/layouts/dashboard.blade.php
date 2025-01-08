@@ -1,5 +1,5 @@
  <!-- Hero Section -->
- <section class="hero-section position-relative text-white text-center d-flex" style="display: flex; height: 60vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
+ <section class="hero-section position-relative text-white text-center d-flex font3" style="display: flex; height: 60vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
          <!-- Hero Text -->
          <div class="hero-section d-flex justify-content-center align-items-center vh-100">
@@ -13,7 +13,7 @@
     </div>
 </section>
 
-<nav class="navbar1 navbar-expand-lg navbar-light bg-light shadow-sm">
+<nav class="navbar1 navbar-expand-lg navbar-light bg-light shadow-sm font3">
     <div class="container-fluid">
         <div class="navbar-collapse justify-content-center">
             <ul class="navbar-nav flex-column flex-lg-row">

@@ -25,7 +25,7 @@
             </button>
         </div>
     </div>
-    <div class="col-lg-8 d-flex flex-column p-4">
+    <div class="col-lg-8 d-flex flex-column p-4 font3">
         <h2 class="fw-bold mb-3 text-primary" style="font-size: 25px;">Room Number - {{ $room->number }}</h2>
         <p class="text-muted fs-5">{{ $room->description }}</p>
         <div class="row mt-3 mb-4">
@@ -33,89 +33,89 @@
             <div class="col-md-4">
                 <ul class="list-unstyled">
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">group</i> {{ $room->adults }} Adults Guests
+                        <i class="material-icons me-2 custom-color" style="font-size: 20px;">group</i> {{ $room->adults }} Adults Guests
                     </li>
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">child_care</i> {{ $room->children }} Children Guests
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">child_care</i> {{ $room->children }} Children Guests
                     </li>
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">square_foot</i> {{ $room->size }} ft
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">square_foot</i> {{ $room->size }} ft
                     </li>
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">attach_money</i> ${{ $room->price }} / Night
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">attach_money</i> ${{ $room->price }} / Night
                     </li>
                     @if ($room->ac == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">ac_unit</i> AC
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">ac_unit</i> AC
                     </li>
                     @else
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">air</i> Non-AC
+                        <i class="material-icons me-2 custom-color" style="font-size: 20px;">air</i> Non-AC
                     </li>
                     @endif
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">bed</i> {{ $room->bed }} Beds
+                        <i class="material-icons me-2 custom-color" style="font-size: 20px;">bed</i> {{ $room->bed }} Beds
                     </li>
                 </ul>
             </div>
         
             <!-- Second Column -->
-            <div class="col-md-4">
+            <div class="col-md-4 font3">
                 <ul class="list-unstyled">
                     @if ($room->parking == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">local_parking</i> Parking
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">local_parking</i> Parking
                     </li>
                     @endif
                     @if ($room->free_wifi == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">wifi</i> Free WiFi
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">wifi</i> Free WiFi
                     </li>
                     @endif
                     @if ($room->restaurant == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">restaurant</i> Restaurant
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">restaurant</i> Restaurant
                     </li>
                     @endif
                     @if ($room->pet_friendly == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">pets</i> Pet Friendly
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">pets</i> Pet Friendly
                     </li>
                     @endif
                     @if ($room->room_service == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">room_service</i> Room Service
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">room_service</i> Room Service
                     </li>
                     @endif
                 </ul>
             </div>
         
             <!-- Third Column -->
-            <div class="col-md-4">
+            <div class="col-md-4 font3">
                 <ul class="list-unstyled">
                     @if ($room->front_desk == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">support_agent</i> 24 Hour Front Desk
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">support_agent</i> 24 Hour Front Desk
                     </li>
                     @endif
                     @if ($room->smoking == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">smoking_rooms</i> Smoking
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">smoking_rooms</i> Smoking
                     </li>
                     @endif
                     @if ($room->wheelchair_accessible == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">accessible</i> Wheelchair Accessible
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">accessible</i> Wheelchair Accessible
                     </li>
                     @endif
                     @if ($room->swimming_pool == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">pool</i> Swimming Pool
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">pool</i> Swimming Pool
                     </li>
                     @endif
                     @if ($room->hours_security == 1)
                     <li class="mb-2" style="display: flex; align-items: center;">
-                        <i class="material-icons text-success me-2" style="font-size: 20px;">security</i> 24 Hours Security
+                        <i class="material-icons  me-2 custom-color" style="font-size: 20px;">security</i> 24 Hours Security
                     </li>
                     @endif
                 </ul>
@@ -125,9 +125,9 @@
     </div>
     @if($SetAttributes)
         @if ($availabilityStatus)
-            <a href="{{route('booking-confirmation',$room->id)}}" class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100 ">BOOK NOW</a>
+            <a href="{{route('booking-confirmation',$room->id)}}" class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100 book-btn-color custom-colorr font3">BOOK NOW</a>
         @else
-            <span class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100 ">First Check Availability Bef Book This Room</span>
+            <a href="#booking-form-ss" class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100 book-btn-color custom-color font3">First Check Availability Before Book This Room</a>
         @endif
     @else
         {{-- <a href="{{route('booking-confirmation',$room->id)}}" class="btn btn-outline-success btn-lg px-4 py-2 mt-3 w-100 "> View Booking Details</a> --}}
