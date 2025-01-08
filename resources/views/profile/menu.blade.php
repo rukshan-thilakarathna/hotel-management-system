@@ -65,7 +65,7 @@
                 </table>
             </div>
             <div class="mt-6 text-right">
-                <h4 class="text-xl font-semibold">Service Charge: <span id="service-charge" class="text-green-400">Rs.{{ env('SERVICE_CHARGE') }}</span></h4>
+                <h4 class="text-xl font-semibold">Service Charge: <span id="service-charge" class="text-green-400">Rs.<span id="service_span">0</span></span></h4>
                 <h4 class="text-xl font-semibold">VAT: <span id="vat" class="text-green-400">Rs.{{ env('VAT') }}</span></h4>
                 <h4 class="text-xl font-semibold">Grand Total: <span id="grand-total" class="text-green-400">Rs.0.00</span></h4>
                 <input type="hidden" name="total_price" id="total_price">
@@ -81,7 +81,7 @@
             <input type="hidden" name="name" value="{{ $booking->user->name }}">
             <input type="hidden" name="order_type" value="Room">
             <input type="hidden" name="room_number" value="{{ $booking->room->number }}">
-            <input type="hidden" name="service_charge" value="{{ env('SERVICE_CHARGE') }}">
+            <input type="hidden" id="service_charge" name="service_charge" value="{{ env('SERVICE_CHARGE') }}">
             <input type="hidden" name="vat" value="{{ env('VAT') }}">
             
         </div>
@@ -92,12 +92,12 @@
     <script>
         const menuItems = document.querySelectorAll('.menu-item');
         const orderList = document.getElementById('order-list');
-        const serviceCharge = parseFloat({{ env('SERVICE_CHARGE') }});
         const vat = parseFloat({{ env('VAT') }});
-        const serviceChargeEl = document.getElementById('service-charge');
         const vatEl = document.getElementById('vat');
         const grandTotalEl = document.getElementById('grand-total');
         const totalInput = document.getElementById('total_price');
+        const service_charge = document.getElementById('service_charge');
+        const service_span = document.getElementById('service_span');
         let orders = [];
 
         const updateOrders = () => {
@@ -118,11 +118,12 @@
                 orderList.appendChild(row);
             });
 
-            const total = subtotal + serviceCharge + vat;
-            serviceChargeEl.textContent = `Rs.${serviceCharge.toFixed(2)}`;
+            const total = subtotal + subtotal*10/100 + vat;
             vatEl.textContent = `Rs.${vat.toFixed(2)}`;
             grandTotalEl.textContent = `Rs.${total.toFixed(2)}`;
             totalInput.value = total;
+            service_charge.value = subtotal*10/100;
+            service_span.innerHTML = subtotal*10/100;
 
             document.querySelectorAll('.quantity-input').forEach(input => {
                 input.addEventListener('input', (e) => {
