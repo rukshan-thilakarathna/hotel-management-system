@@ -82,31 +82,35 @@ class RoomBookingListLayout extends Table
                 })
                 ->cantHide(),
 
-          
-
             TD::make('status', 'Booking Status')
                 ->sort()
                 ->filter(Input::make()),
 
-            TD::make('room.created_at', 'Action')
+            TD::make('room.created_at', 'Bill')
                 ->render(function (RoomBooking $RoomBooking) {
-
 
                 return Link::make('Bill')
                     ->route('platform.rooms.bill', $RoomBooking->id)->style('background: #43d76b;border-radius: 5px;padding: 8px;')->icon('eye');
                 })
-
                 ->cantHide(),
 
-                TD::make('room.created_at', 'Action')
+                TD::make('room.created_at', 'Add aditional Charge')
                 ->render(function (RoomBooking $RoomBooking) {
 
 
-                return Link::make('Bill')
-                    ->route('platform.rooms.bill', $RoomBooking->id)->style('background: #43d76b;border-radius: 5px;padding: 8px;')->icon('eye');
+                return ModalToggle::make('Add Charge')
+                    ->modal('addChargeModal')
+                    ->modalTitle('Add Charge')
+                    ->method('addCharge')
+                    ->icon('plus');
                 })
-
                 ->cantHide(),
+
+                
+
+
+
+
 
         ];
     }
