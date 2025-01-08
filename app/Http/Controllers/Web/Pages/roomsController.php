@@ -21,19 +21,19 @@ class roomsController extends Controller
     }
 
     /**
-     * This function is used to display the list of rooms, 
-     * filter rooms according to the check-in and check-out dates, 
+     * This function is used to display the list of rooms,
+     * filter rooms according to the check-in and check-out dates,
      * and redirect to the index page if no rooms are available.
-     * 
+     *
      * @param Request $request The request object
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request) 
+    public function index(Request $request)
     {
 
-  
-        $this->rooms = Rooms::get();    
+
+        $this->rooms = Rooms::get();
 
         $availabilityStatus = false;
 
@@ -47,13 +47,17 @@ class roomsController extends Controller
                 $checkin_date = $request->input('checkIn');
                 $checkout_date = $request->input('checkOut');
             }
-           
+
             session()->put('checkin_date', $checkin_date);
             session()->put('checkout_date', $checkout_date);
             $checkIn = strtotime($checkin_date);
             $checkOut = strtotime($checkout_date);
+            $adults = $request->input('adults') ?? 1;
+            $children = $request->input('children') ?? 0;
+            session()->put('adults', $adults);
+            session()->put('children', $children);
 
-      
+
 
             $filterData = null;
 
@@ -67,7 +71,7 @@ class roomsController extends Controller
                 if($request->input('free_wifi')){
                     $filterData['free_wifi'] = $request->input('free_wifi');
                 }
-                
+
                 if($request->input('parking')){
                     $filterData['parking'] = $request->input('parking');
                 }
@@ -104,7 +108,7 @@ class roomsController extends Controller
                     $filterData['front_desk'] = $request->input('front_desk');
                 }
 
-                if($request->input('bed')){
+                if($request->input('bed') == 1 || $request->input('bed') == 2 || $request->input('bed') == 3 || $request->input('bed') == 4){
                     $filterData['bed'] = $request->input('bed');
                 }
 
@@ -113,11 +117,11 @@ class roomsController extends Controller
                 }
             }
 
-           
 
 
 
-            $availability = $this->checkAvailability->checkAvailability($checkIn, $checkOut ,0,0,$filterData);
+
+            $availability = $this->checkAvailability->checkAvailability($checkIn, $checkOut ,$adults,$children,$filterData);
 
 
             if ($availability['status']) {
@@ -144,7 +148,7 @@ class roomsController extends Controller
                     ->with('warning', 'No rooms available');
                 }
 
-                
+
 
             } else {
                 session()->put('checkin_date', date('Y-m-d'));
@@ -156,15 +160,15 @@ class roomsController extends Controller
                 // }
                 return redirect()->back()
                 ->with('error', $availability['message']);
-               
+
             }
         }
 
 
-        return view('rooms')->with([ 'availabilityStatus' => $availabilityStatus ,'rooms' => $this->rooms, 'checkin' => $checkin ?? 0, 'checkout' => $checkout ?? 0]); 
+        return view('rooms')->with([ 'availabilityStatus' => $availabilityStatus ,'rooms' => $this->rooms, 'checkin' => $checkin ?? 0, 'checkout' => $checkout ?? 0]);
     }
 
 
-  
+
 
 }

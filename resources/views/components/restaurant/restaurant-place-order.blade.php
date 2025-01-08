@@ -59,16 +59,16 @@
             <div class="row mb-4">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="service_charge">Service Charge</label>
-                        <input type="text" class="form-control " name="" value="{{ env('CURRENCY') .' '. env('SERVICE_CHARGE') }}" id="service_charge" >
-                        <input type="hidden" name="service_charge" value="{{ env('SERVICE_CHARGE') }}" id="service_charge_price">
+                        <label for="service_charge">Service Charge {{ env('CURRENCY') }}</label>
+                        <input type="text" class="form-control " name="" value="" id="service_charge" >
+                        <input type="hidden" name="service_charge" value="0" id="service_charge_price">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="vat">Vat</label>
                         <input type="text" class="form-control" name="" value="{{ env('CURRENCY') .' '. env('VAT') }}" id="vat" >
-                        <input type="hidden" name="vat" value="{{ env('SERVICE_CHARGE') }}" id="service_charge_price">
+                        <input type="hidden" name="vat" value="{{ env('VAT') }}" id="service_charge_price">
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
 <script>
     // Function to update the price based on quantity
     function updateTotalPrice() {
-        let totalPrice = {{ env('SERVICE_CHARGE') + env('VAT') }};
+        let totalPrice = 0;
         
         // Loop through each row and calculate the total price
         const rows = document.querySelectorAll('#tableBody tr');
@@ -151,10 +151,12 @@
         });
 
         // Update the total price displayed on the page (span)
-        document.getElementById('totalPriceDisplay').textContent = totalPrice.toFixed(2);
+        document.getElementById('totalPriceDisplay').textContent = (totalPrice+ totalPrice*10/100).toFixed(2);
         
         // Update the hidden input with the total price value
-        document.getElementById('totalPriceInput').value = totalPrice.toFixed(2);
+        document.getElementById('totalPriceInput').value = (totalPrice+ totalPrice*10/100).toFixed(2);
+        document.getElementById('service_charge_price').value = totalPrice*10/100;
+        document.getElementById('service_charge').value = totalPrice*10/100;
     }
 
     // Update the price input when a menu item is selected

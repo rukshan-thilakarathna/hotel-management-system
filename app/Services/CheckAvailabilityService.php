@@ -11,7 +11,7 @@ class  CheckAvailabilityService
     {
         $currentDate = strtotime(date("Y-m-d"));
 
-     
+
 
         if ($currentDate <= $checkIn && $currentDate <= $checkOut && $checkIn <= $checkOut) {
 
@@ -57,7 +57,7 @@ class  CheckAvailabilityService
             return [
                 'status' => true,
                 'data' => $rooms,
-                
+
             ];
 
         } else {

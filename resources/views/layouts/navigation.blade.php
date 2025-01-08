@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('images/LOGO.jpg') }}" alt="Logo" width="80" height="80">
+            <img src="{{ asset('images/Logo.png') }}" alt="Logo" width="80" height="80">
         </a>
       
         <!-- Toggle button for small screens -->

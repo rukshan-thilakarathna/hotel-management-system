@@ -30,8 +30,8 @@ class UserListLayout extends Table
         return [
             TD::make('name', __('Name'))
                 ->sort()
-                ->cantHide()
                 ->filter(Input::make())
+                ->cantHide()
                 ->render(fn (User $user) => new Persona($user->presenter())),
 
             TD::make('email', __('Email'))

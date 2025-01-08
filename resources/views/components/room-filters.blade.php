@@ -4,6 +4,8 @@
         @csrf
 
         <input type="hidden" name="filter" value="1">
+        <input type="hidden" name="adults" value="{{ session('adults') ?? 1 }}">
+        <input type="hidden" name="children" value="{{ session('children') ?? 0 }}">
         <input type="hidden" name="dateRange" value="{{ session('checkin_date') ?? now()->format('Y-m-d') }} - {{ session('checkout_date') ?? now()->addDay()->format('Y-m-d') }}">
 
         

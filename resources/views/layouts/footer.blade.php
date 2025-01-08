@@ -18,7 +18,7 @@
         <div class="row">
             <!-- Logo and Description -->
             <div class="col-lg-4 mb-4">
-                <img src="{{ asset('images/LOGO.jpg') }}" alt="Tranquil Trails Logo" class="mb-3" style="width: 90px;">
+                <img src="{{ asset('images/Logo.png') }}" alt="Tranquil Trails Logo" class="mb-3" style="width: 90px;">
                 <p><strong>Stay up to date with our latest news, receive exclusive deals and more</strong></p>
                 <p class="text-muted">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.
