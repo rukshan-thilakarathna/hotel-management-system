@@ -1,5 +1,5 @@
 <!-- Hero Section -->
-<section class="hero-section position-relative text-white text-center d-flex">
+<section class="hero-section position-relative text-white text-center d-flex font3" id="booking-form-ss">
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg">
@@ -34,13 +34,13 @@
 
             <!-- Buttons -->
             <div class="d-flex">
-                <a href="{{route('rooms')}}" type="button" class="btn btn-success me-2">BOOK NOW</a>
+                <a href="{{route('rooms')}}" type="button" class="btn btn-success me-2 new-btn-color">BOOK NOW</a>
                 @if (Route::has('login'))
                     
                     @auth
-                        <a href="{{ url('/dashboard') }}" type="button" class="btn btn-success">DASHBOARD</a>
+                         <a href="{{ url('/dashboard') }}" type="button" class="btn new-btn-color">DASHBOARD</a>
                     @else
-                        <a href="{{ route('login') }}" type="button" class="btn btn-success">LOGIN / REGISTER</a>
+                        <a href="{{ route('login') }}" type="button" class="btn btn-success new-btn-color">LOGIN / REGISTER</a>
                     @endauth
                 @endif
             </div>

@@ -1,4 +1,4 @@
-<div class="card p-4 border rounded shadow-sm">
+<div class="card p-4 border rounded shadow-sm font3">
     <h5 class="fw-bold mb-4 text-primary">Filters</h5>
     <form id="bookingFilter" action="{{ route('rooms') }}" method="GET">
         @csrf
@@ -107,6 +107,6 @@
         </div>
         
         <!-- Search Button -->
-        <button class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100">Search</button>
+        <button class="btn book-btn-color btn-lg px-4 py-2 mt-auto w-100" style="hovercolor:white">Search</button>
     </form>
 </div>

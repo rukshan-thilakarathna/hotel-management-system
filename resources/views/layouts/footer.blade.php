@@ -14,7 +14,7 @@
 </style>
 
 <footer>
-    <div class="container">
+    <div class="container font3">
         <div class="row">
             <!-- Logo and Description -->
             <div class="col-lg-4 mb-4">
@@ -57,7 +57,7 @@
                 <h5 class="fw-bold">Newsletter</h5>
                 <div class="d-flex flex-wrap">
                     <input type="email" class="form-control me-2 mb-2" placeholder="Your email here">
-                    <button class="btn btn-success mb-2">Join</button>
+                    <button class="btn btn-success mb-2 new-btn-color">Join</button>
                 </div>
                 <p class="text-muted mt-2" style="font-size: 0.85rem;">
                     We respect your privacy and will never share your info. <a href="#" class="text-muted text-decoration-none">Privacy Policy</a>

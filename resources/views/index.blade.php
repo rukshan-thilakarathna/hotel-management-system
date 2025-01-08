@@ -1,6 +1,6 @@
 <x-app-layout>
      <!-- Hero Section -->
-     <section class="hero-section position-relative text-white text-center d-flex" style="display: flex; height: 60vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
+     <section class="hero-section position-relative text-white text-center d-flex font3" style="display: flex; height: 60vh; background: url('{{ asset('images/bg.jpg') }}') center/cover no-repeat;">
         <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
             <!-- Hero Text -->
             <div class="hero-section d-flex justify-content-center align-items-center vh-100">
@@ -15,49 +15,12 @@
         </div>
     </section>
 
-    <!-- Amenities Section -->
-    <section>
-        <div class="container text-center py-5">
-            <h2 class="text-muted fw-bold mb-5" style="font-size: 40px;">Amenities</h2>
-            <div class="row g-4">
-                <!-- Best Rates -->
-                <div class="col-md-3">
-                    <div class="border rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 100px; height: 100px;">
-                        <i class="fas fa-award text-success" style="font-size: 3rem; "></i>
-                    </div>
-                    <h5 class="fw-bold text-success mt-3">BEST RATES</h5>
-                </div>
-                <!-- Dining -->
-                <div class="col-md-3">
-                    <div class="border rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 100px; height: 100px;">
-                        <i class="fas fa-utensils text-success" style="font-size: 3rem;"></i>
-                    </div>
-                    <h5 class="fw-bold text-success mt-3">DINING</h5>
-                </div>
-                <!-- Wi-Fi -->
-                <div class="col-md-3">
-                    <div class="border rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 100px; height: 100px;">
-                        <i class="fas fa-wifi text-success" style="font-size: 3rem;"></i>
-                    </div>
-                    <h5 class="fw-bold text-success mt-3">WI-FI</h5>
-                </div>
-                <!-- Best Views -->
-                <div class="col-md-3">
-                    <div class="border rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 100px; height: 100px;">
-                        <i class="fas fa-binoculars text-success" style="font-size: 3rem;"></i>
-                    </div>
-                    <h5 class="fw-bold text-success mt-3">BEST VIEWS</h5>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Resort Section -->
-    <section class="container py-5">
+    <section class="container py-5 font3" style="background: url('{{ asset('images/') }}') no-repeat center center; background-size: cover;">
         <div class="row align-items-center">
             <!-- Text Content -->
             <div class="col-md-6 col-12 mb-4 mb-md-0">
-            <h5 class="text-uppercase text-muted fw-bold mb-3">Tranquil Trails</h5>
+            <h5 class="text-uppercase text-muted fw-bold mb-3 main-font">Tranquil Trails</h5>
 
                 <h2 class="text-muted fw-bold mb-4" style="font-size: 40px;">Relax in our Resort</h2>
                 <p class="mb-4 ms-2"style="font-size: 20px;">
@@ -69,7 +32,7 @@
                     amet libero. Fermentum commodo nulla amet venenatis phasellus nibh. Auctor magnis consectetur porta
                     convallis in auctor etiam. Quam tortor sit erat purus et.
                 </p>
-                <a href="#" class="text-success fw-bold">SEE MORE...</a>
+                <a href="#" class="fw-bold custom-color">SEE MORE...</a>
             </div>
             <!-- Images -->
             <div class="col-md-6 col-12 position-relative mt-5">
@@ -82,7 +45,7 @@
     </section>
 
     <!-- Rooms Section -->
-    <section class="container py-5 mt-5">
+    <section class="container py-5 mt-5 font3">
         <h5 class="text-uppercase text-muted fw-bold mb-2">Rooms</h5>
         <h2 class="text-muted fw-bold mb-4" style="font-size: 40px;">Experience the perfect blend of comfort and luxury <br>in our beautifully designed rooms</h2>
 
@@ -131,13 +94,13 @@
         </p>
 
         <!-- See More Link -->
-        <a href="#" class="text-success fw-bold">SEE MORE...</a>
+        <a href="#"  class="fw-bold custom-color">SEE MORE...</a>
     </section>
 
     <!-- Dining Section -->
-    <section
-        style="background: url('{{ asset('images/dining.jpg') }}') no-repeat center center; background-size: cover;">
-        <div class="py-5">
+    <section 
+        style="background: url('{{ asset('images/dining.jpg') }}') no-repeat center center; background-size: cover; font3">
+        <div class="py-5 font3">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
@@ -149,13 +112,13 @@
                                     <div class="col-lg-6 col-md-12 mb-4">
                                         <h3 class="text-muted text-uppercase fw-bold mb-2">Dining at our Hotel</h3>
                                         <h1 class="text-muted  text-dark fw-bold mb-4" style="font-size: 40px;">Fresh ingredients, Bold flavors, Unforgettable dining</h1>
-                                        <p class="text-muted mb-4" style="font-size: 20px;">
+                                        <p class="mb-4 custom-color" style="font-size: 20px;">
                                             Lorem ipsum dolor sit amet consectetur. Sapien id diam nulla molestie justo quisque maecenas.
                                             Quis nulla feugiat eu magna mi amet. Erat nunc ut auctor id suscipit cursus purus lacinia
                                             donec. Turpis et mattis pellentesque orci dapibus turpis cras viverra suspendisse. Dolor proin
                                             laoreet quis laoreet blandit egestas purus eget.
                                         </p>
-                                        <a href="#" class="text-success fw-bold">SEE MORE...</a>
+                                        <a href="#" class="fw-bold custom-color">SEE MORE...</a>
                                     </div>
 
                                     <!-- Images Section -->
@@ -195,7 +158,7 @@
     </section>
 
     <!-- Nearby Attraction Section -->
-    <section class="container py-5 mt-5">
+    <section class="container py-5 mt-5 font3">
         <!-- Section Title and Text Content -->
         <div class="row align-items-center">
             <!-- Text Content (Left Aligned) -->
@@ -206,7 +169,7 @@
                     Diam adipiscing et integer porttitor auctor sem. Dictum facilisis quisque pellentesque pretium iaculis diam. A id feugiat at eu posuere nam et gravida scelerisque. 
                     Aliquet congue non egestas lacinia. Egestas quis adipiscing sed nibh viverra vestibulum.
                 </p>
-                <a href="#" class="text-success fw-bold">SEE MORE...</a>
+                <a href="#"  class="fw-bold custom-color">SEE MORE...</a>
             </div>
 
             <!-- Image Slider (Right Aligned) -->
@@ -241,7 +204,7 @@
         </div>
     </section>
 
-    <section class="container py-5 mt-5">
+    <section class="container py-5 mt-5 font3">
         <!-- Section Title -->
         <div class="text-center mb-4">
             <h5 class="text-uppercase text-muted fw-bold">Client Testimonial</h5>

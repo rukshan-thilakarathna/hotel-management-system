@@ -60,7 +60,7 @@
                     <input type="hidden" name="children" id="hiddenChildCount" value="0">
 
                     <div class="mt-3 text-center">
-                        <button class="btn btn-success w-100">Check availability</button>
+                        <button class="btn btn-success w-100 new-btn-color">Check availability</button>
                     </div>
                 </div>
             </form>

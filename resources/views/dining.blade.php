@@ -1,12 +1,12 @@
 <x-app-layout>
     <!-- Hero Section -->
   <div class="bg-dark text-white text-center d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('images/dining.jpg') }}'); background-size: cover; background-position: center; height: 500px;">
-    <h1 class="fw-bold text-uppercase bg-opacity-75 bg-dark p-2">Multi Cuisine Restaurant</h1>
+    <h1 class="fw-bold text-uppercase bg-opacity-75 bg-dark p-2 font3">Multi Cuisine Restaurant</h1>
   </div>
   
 
   <!-- Text Section -->
-  <div class="container text-center my-5">
+  <div class="container text-center my-5 font3">
     <h2 class="fw-bold">Fresh ingredients, Bold flavors, Unforgettable dining</h2>
     <p class="text-muted">
       Lorem ipsum dolor sit amet consectetur. Curabitur velit elementum ut pretium duis ultricies massa. Quis dui vitae eu nulla volutpat neque egestas. Ut arcu feugiat eu nunc ornare amet non. Condimentum nisl ultrices justo sociis donec. Urna ac neque arcu nulla vel mauris nisl euismod faucibus.
@@ -14,7 +14,7 @@
   </div>
 
   <!-- Menu Cards Section -->
-  <div class="container my-5 text-center">
+  <div class="container my-5 text-center font3">
     <div class="row g-4">
       <!-- Card 1 -->
       <div class="col-md-3 col-sm-6">

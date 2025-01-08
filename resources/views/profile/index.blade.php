@@ -6,7 +6,7 @@
         
     </style>
 
- <section class="container py-5">
+ <section class="container py-5 font3">
     <h1 class="text-muted py-5 text-center text-black fw-bold" style="font-size:40px;">Thank You For Choosing Us</h1>
         <div class="row align-items-center">
             <!-- Text Content -->
@@ -23,7 +23,7 @@
                     amet libero. Fermentum commodo nulla amet venenatis phasellus nibh. Auctor magnis consectetur porta
                     convallis in auctor etiam. Quam tortor sit erat purus et.
                 </p>
-                <a href="#" class="text-success fw-bold">SEE MORE...</a>
+                <a href="#" class="fw-bold custom-color">SEE MORE...</a>
             </div>
             <!-- Images -->
             <div class="col-md-6 col-12 position-relative mt-5">
