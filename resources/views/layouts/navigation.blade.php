@@ -38,7 +38,7 @@
                 @if (Route::has('login'))
                     
                     @auth
-                         <a href="{{ url('/dashboard') }}" type="button" class="btn new-btn-color">DASHBOARD</a>
+                         <a href="{{ url('/dashboard') }}" type="button" class="btn btn-success new-btn-color">DASHBOARD</a>
                     @else
                         <a href="{{ route('login') }}" type="button" class="btn btn-success new-btn-color">LOGIN / REGISTER</a>
                     @endauth

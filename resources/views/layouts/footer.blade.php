@@ -2,7 +2,7 @@
     footer {
         padding-top: 90px; /* Increase top padding */
         padding-bottom: 30px; /* Optional bottom padding */
-        background-color: #e9f7f0; /* Background color */
+        background-color: #d3af9066; /* Background color */
     }
 
     .bottom-footer {
