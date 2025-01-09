@@ -7,7 +7,7 @@
             
         @endif
         @foreach ($rooms as $key => $room)
-            <div class="row mb-1">
+            <div class="row mb-1" style="display: flex;justify-content: center;">
                 <div class="col-lg-8">
                     @include('components.room-card', ['SetAttributes' => false])
                 </div>
