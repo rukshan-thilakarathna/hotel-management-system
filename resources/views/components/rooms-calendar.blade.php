@@ -75,6 +75,7 @@
 
                     @if ($currentDay != '*')
                         @if(strpos($availability, $dateString))
+                        <input  type="checkbox" class="zin1" name="dates[]" value="{{$year}}-{{$month}}-{{$currentDay}}">
                             <span style="border-radius: 0px 5px 5px 0px;background: #d9a9a9;display: block; width: 100%;padding: 5px 13px;border-left: 2px solid #f14a4a !important;">booked</span>
                         @else
                         <input  type="checkbox" class="zin1" name="dates[]" value="{{$year}}-{{$month}}-{{$currentDay}}">
