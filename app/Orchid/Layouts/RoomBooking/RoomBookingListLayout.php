@@ -6,6 +6,7 @@ use App\Models\RoomAvailability;
 use App\Models\RoomBooking;
 use App\Models\Rooms;
 use App\Models\User;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
@@ -94,8 +95,8 @@ class RoomBookingListLayout extends Table
                 })
                 ->cantHide(),
 
-                TD::make('room.created_at', 'Add aditional Charge')
-                ->render(function (RoomBooking $RoomBooking) {
+            TD::make('room.created_at', 'Add aditional Charge')
+            ->render(function (RoomBooking $RoomBooking) {
 
 
                 return ModalToggle::make('Add Charge')
@@ -104,6 +105,17 @@ class RoomBookingListLayout extends Table
                     ->method('addCharge')
                     ->icon('plus');
                 })
+                ->cantHide(),
+
+            TD::make('room.created_at', 'Cancel Booking')
+            ->render(function (RoomBooking $RoomBooking) {
+
+
+                return Button::make(__('Cancel'))
+                    ->icon('bs.x-circle')
+                    ->method('cancel',[
+                        'id'=>$RoomBooking->id
+                    ]);})
                 ->cantHide(),
 
                 

@@ -5,6 +5,7 @@ namespace App\Orchid\Screens\RoomBooking;
 use App\Models\RoomBooking;
 use App\Orchid\Layouts\RoomBooking\RoomBookingListLayout;
 use App\Services\CheckAvailabilityService;
+use App\Services\RoomBookingService;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Fields\DateRange;
@@ -20,10 +21,12 @@ class BookingListScreen extends Screen
      * @return array
      */
     public $checkAvailability;
+    public $BlockRooms;
 
-    public function __construct(CheckAvailabilityService $checkAvailability)
+    public function __construct(CheckAvailabilityService $checkAvailability , RoomBookingService $roomBooking)
     {
         $this->checkAvailability = $checkAvailability;
+        $this->BlockRooms = $roomBooking;
     }
 
 
@@ -102,6 +105,19 @@ class BookingListScreen extends Screen
             return redirect()->route('platform.systems.room-availability',[$checkIn,$checkOut]);
         }else{
             Alert::error($availability['message']);
+        }
+    }
+
+    public function cancel(Request $request)
+    {
+        $booking = RoomBooking::find($request->id);
+  
+        $cancel = $this->BlockRooms->UnBlockRooms($booking->room_id, $booking->check_in_date, $booking->check_out_date , $booking->id);
+
+        if($cancel){
+            Alert::success('Booking cancelled successfully.');
+        }else{
+            Alert::error('Failed to cancel booking.');
         }
     }
 }
