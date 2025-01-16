@@ -1,6 +1,6 @@
 <div class="container mt-5 text-white">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <!-- Booking Form -->
             <form id="bookingForm" action="{{ route('rooms') }}" method="GET">
                 <div class="card p-4 border border-warning border-2 bg-black">

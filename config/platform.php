@@ -126,7 +126,7 @@ return [
      */
 
     'resource' => [
-        'stylesheets' => ['/css/room-view.css', '/css/restaurant-place-order-form.css'],
+        'stylesheets' => ['/css/room-view.css', '/css/restaurant-place-order-form.css','/web/Components/RoomsCalendar.css'],
         'scripts'     => [],
     ],
 
