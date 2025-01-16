@@ -115,11 +115,15 @@ class RoomsCalendarListScreen extends Screen
 
     public function Block(Request $request)
     {
-        if($request->dates[0])
-        $chackIn = strtotime($request->dates[0]);
+        if(!empty($request->dates[0])){
+             $chackIn = strtotime($request->dates[0]);
         $chackOut = strtotime( $request->dates[count($request->dates) - 1]);
 
         dd($request->id);
+        }else{
+            Toast::info(__('Select Dates'));
+        }
+       
     }
 
     
