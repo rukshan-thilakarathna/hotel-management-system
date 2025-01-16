@@ -49,7 +49,8 @@
 
         .new-btn-color:hover {
             background-color: #A67C52; /* Hover background color */
-            color: white;              /* Text color on hover */
+            color: white;
+            border-color: #FFD700;               /* Text color on hover */
         }
 
         .new-btn-color:focus, 
@@ -70,6 +71,7 @@
         .book-btn-color:hover{
             background-color: #8B572A;
             color: white;
+            border-color: #FFD700; 
         }
         .book-btn-color:focus, 
         .book-btn-color:active {
@@ -78,6 +80,14 @@
             box-shadow: none;                      /* Removes focus outline */
             border-color: #FFD700;                /* Keep border color */
         }
+        @media (max-width: 768px) {
+            .abt-img{
+                width: 150%;
+                justify-content: center;
+                margin-left: -93px;
+            }
+        }
+
     </style>
 
     <body class="font-sans antialiased">
@@ -117,9 +127,6 @@
                 </script>
             @endif
 
-           
-
-           
 
             {{ $slot }}
 

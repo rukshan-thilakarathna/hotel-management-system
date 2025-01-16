@@ -4,14 +4,11 @@
        <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
            <!-- Hero Text -->
            <div class="hero-section d-flex justify-content-center align-items-center vh-100">
-               <div class="hero-content mt-auto" style="margin:50% auto;">
+               <div class="hero-content" style="margin:62% auto;">
                    <h1 class="display-4 fw-bold">WHERE NATURE MEETS LUXURY</h1>
                    <p class="lead">Book Your Stay Today</p>
                </div>
            </div>
-
-           
-
        </div>
    </section>
    @include('layouts.booking-form')
@@ -37,7 +34,7 @@
            </div>
            <!-- Images -->
            <div class="col-md-6 col-12 position-relative mt-5">
-               <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
+               <div class="abt-img d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
                    <img src="{{ asset('images/ABOUT2.jpg') }}" alt="Resort Image 1" class="img-fluid shadow" style="max-width: 45%;">
                    <img src="{{ asset('images/about1.jpg') }}" alt="Resort Image 2" class="img-fluid shadow" style="max-width: 55%; height: auto;">
                </div>
@@ -46,8 +43,8 @@
    </section>
 
    <!-- Rooms Section -->
-   <section class="container py-5 mt-5 font3">
-       <h5 class="text-uppercase text-muted fw-bold mb-2">Rooms</h5>
+   <section class="container font3" style=" margin-top: 25px; margin-bottom: 25px;">
+       <h5 class="text-uppercase text-muted fw-bold mb-2" style="font-size: 20px;">Rooms</h5>
        <h2 class="text-muted fw-bold mb-4" style="font-size: 40px;">Experience the perfect blend of comfort and luxury <br>in our beautifully designed rooms</h2>
 
        <div id="roomCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
@@ -111,7 +108,7 @@
                                <div class="row align-items-center">
                                    <!-- Text Section -->
                                    <div class="col-lg-6 col-md-12 mb-4">
-                                       <h3 class="text-muted text-uppercase fw-bold mb-2">Dining at our Hotel</h3>
+                                       <h3 class="text-muted text-uppercase fw-bold mb-2" style="font-size: 20px;">Dining at our Hotel</h3>
                                        <h1 class="text-muted  text-dark fw-bold mb-4" style="font-size: 40px;">Fresh ingredients, Bold flavors, Unforgettable dining</h1>
                                        <p class="mb-4 custom-color" style="font-size: 20px;">
                                            Lorem ipsum dolor sit amet consectetur. Sapien id diam nulla molestie justo quisque maecenas.
@@ -159,7 +156,7 @@
    </section>
 
    <!-- Nearby Attraction Section -->
-   <section class="container py-5 mt-5 font3">
+   <section class="container font3" style="margin-top: 25px; margin-bottom: -50px;">
        <!-- Section Title and Text Content -->
        <div class="row align-items-center">
            <!-- Text Content (Left Aligned) -->
@@ -207,13 +204,13 @@
 
    <section class="container py-5 mt-5 font3">
        <!-- Section Title -->
-       <div class="text-center mb-4">
-           <h5 class="text-uppercase text-muted fw-bold">Client Testimonial</h5>
-           <h2 class="fw-bold mt-5" style="font-size: 40px;">Hear from Our Happy Customers</h2>
+       <div class="text-center" style="margin-bottom: 20px;">
+           <h5 class="text-uppercase text-muted fw-bold" style="margin-bottom: 1px; font-size: 20px;">Client Testimonial</h5>
+           <h2 class="fw-bold mt-3" style="font-size: 40px;">Hear from Our Happy Customers</h2>
        </div>
 
        <!-- Carousel Slider -->
-       <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+       <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" style="margin-top: -40px; margin-bottom: -40px;">
            <div class="carousel-inner">
                <!-- First Slide -->
                <div class="carousel-item active mt-5">

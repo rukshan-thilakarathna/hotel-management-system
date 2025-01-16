@@ -22,11 +22,11 @@
 
                 <!-- Right Column: Text Content -->
                 <div class="col-lg-6">
-                    <h2 class="fw-bold text-dark">About Tranquil Trails</h2>
-                    <p class="text-muted">
+                    <h2 class="fw-bold text-dark" style="font-size: 55px;">About Tranquil Trails</h2>
+                    <p class="text-muted" style="margin-top: 20px; margin-bottom: 25px;">
                         Nestled in the serene beauty of Dambulla, Tranquil Trails offers a perfect harmony between luxury and nature. Our resort provides an escape from the chaos of everyday life, delivering unparalleled comfort and indulgence.
                     </p>
-                    <p class="text-muted">
+                    <p class="text-muted" style="margin-bottom: 20px;">
                         From breathtaking landscapes to elegantly designed rooms, our resort is crafted to create unforgettable experiences for every guest. Whether you seek relaxation or adventure, Tranquil Trails is the ideal destination.
                     </p>
                     <ul class="list-unstyled">

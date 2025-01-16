@@ -1,5 +1,39 @@
+
+<style>
+.card-home-icon {
+    position: absolute;
+    top: 25px;
+    font-size: 2rem; /* Adjust icon size */
+    right: 30px;
+    color: #000; /* Adjust icon color */
+    background: none; /* Background color for better visibility */
+    padding: 5px;
+    border-radius: 50%; /* Make it a circle */
+    z-index: 10; /* Ensure the icon is above other elements */
+}
+
+@media (min-width: 768px) {
+    .card-home-icon {
+        display: none; /* Hide icon on larger screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .d-flex.gap-2 > * {
+        flex-basis: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+</style>
+
+
+</style>
 <x-guest-layout>
+<!-- Home icon for mobile views -->   
     <div class="card shadow-lg p-4 text-dark" style="max-width: 700px; background-color: rgba(255, 255, 255, 0.8); border-radius: 15px; margin: auto;">
+    <div class="card-home-icon d-md-none"> <a href="/"><i class="bi bi-house-fill"></i></a></i> 
+    </div> 
         <div class="card-body">
             <div class="text-center mb-4">
                 <i class="bi bi-calendar-check-fill text-primary" style="font-size: 2.5rem;"></i>
@@ -79,18 +113,17 @@
                     </label>
                 </div>
 
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between gap-2 flex-wrap">
                     <!-- Back to Room Page Button -->
-                    <a href="/rooms" class="btn btn-outline-secondary w-48 py-2 d-flex align-items-center justify-content-center">
+                    <a href="/rooms" class="btn btn-outline-secondary flex-grow-1 py-2 d-flex align-items-center justify-content-center">
                         <i class="bi bi-arrow-left me-2"></i> Back to Room Page
                     </a>
                     
                     <!-- Confirm Booking Button -->
-                    <button type="submit" class="btn btn-primary w-48 py-2 d-flex align-items-center justify-content-center">
+                    <button type="submit" class="btn btn-primary flex-grow-1 py-2 d-flex align-items-center justify-content-center">
                         <i class="bi bi-check-circle me-2"></i> Confirm Booking
                     </button>
-                </div>
-                
+                </div>            
             </form>
         </div>
     </div>

@@ -1,3 +1,23 @@
+<style>
+@media (max-width: 768px) {
+    .list-unstyled {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .list-unstyled li {
+        flex: 0 0 48%; /* Each column takes about half the width */
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .list-unstyled li i {
+        margin-right: 5px; /* Adjust spacing between icon and text */
+    }
+}
+</style>
 <div class="row mb-5 align-items-start shadow-sm border rounded overflow-hidden p-3">
     <div class="col-lg-4 p-0">
         <!-- Carousel for each Room -->
@@ -27,7 +47,7 @@
     </div>
     <div class="col-lg-8 d-flex flex-column p-4 font3">
         <h2 class="fw-bold mb-3 text-primary" style="font-size: 25px;">Room Number - {{ $room->number }}</h2>
-        <p class="text-muted fs-5">{{ $room->description }}</p>
+        <p class="text-muted" style="font-size:1rem;">{{ $room->description }}</p>
         <div class="row mt-3 mb-4">
             <!-- First Column -->
             <div class="col-md-4">
