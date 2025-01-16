@@ -1,5 +1,45 @@
+<style>
+.card-home-icon {
+    position: absolute;
+    top: 25px;
+    font-size: 2rem; /* Adjust icon size */
+    right: 30px;
+    color: #000; /* Adjust icon color */
+    background: none; /* Background color for better visibility */
+    padding: 5px;
+    border-radius: 50%; /* Make it a circle */
+    z-index: 10; /* Ensure the icon is above other elements */
+}
+
+@media (max-width: 768px) {
+                .bg-img{
+                    min-height: 140vh; /* Prevents cutting on smaller screens */
+                    margin-top: -110px;
+                    
+                }
+            }
+        
+    @media (max-width: 768px) {
+    body, html {
+        overflow: hidden; /* Disable scrolling */
+        height: 120%; /* Ensure full height */
+    }
+
+    /* Allow controlled scrolling within specific elements if needed */
+    .card {
+        max-height: 100vh; /* Restrict card height to viewport */
+        overflow-y: auto; /* Enable internal scrolling for long content */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    }
+}
+
+</style>
+
+</style>
 <x-guest-layout>
     <div class="card shadow-lg p-4 text-light" style="max-width: 600px; background-color: rgba(255, 255, 255, 0.8); border-radius: 15px; width:400px;">
+        <div class="card-home-icon d-md-none"> <a href="/"><i class="bi bi-house-fill"></i></a></i> 
+        </div>
         <div class="card-body">
             <!-- Tabs -->
             <ul class="nav nav-tabs justify-content-center mb-4" role="tablist">

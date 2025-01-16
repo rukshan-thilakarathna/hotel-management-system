@@ -12,16 +12,16 @@
      </div>
  </section>
 
- <section id="contact" class="py-5 bg-light font3">
+ <section id="contact" class="py-5 bg-light font3" style="margin-top:-20px;">
   <div class="container">
       <div class="row align-items-center">
           <!-- Left Column: Text and Information -->
           <div class="col-lg-6">
-              <h2 class="fw-bold text-dark">Get in Touch</h2>
-              <p class="text-muted">
+              <h2 class="fw-bold text-dark" style="font-size:55px;">Get in Touch</h2>
+              <p class="text-muted" style="margin-top:30px;">
                   We'd love to hear from you. Feel free to reach out for reservations, inquiries, or assistance. Our team is here to help!
               </p>
-              <ul class="list-unstyled new-btn-colo">
+              <ul class="list-unstyled new-btn-colo" style="margin-top:30px;">
                 <li class="mb-3">
                     <i class="bi bi-envelope-fill custom-color me-2"></i>
                     <strong>Email:</strong> tranquiltrails@gmail.com
@@ -35,8 +35,8 @@
                     <strong>Address:</strong> No. 101, Dambulla, Sri Lanka
                 </li>
               </ul>
-              <h5 class="fw-bold mt-4">Follow Us</h5>
-              <div>
+              <h5 class="fw-bold mt-4" style="font-size:20px;">Follow Us</h5>
+              <div style="margin-top:15px;">
                   <a href="#" class="text-dark me-3"><i class="bi bi-facebook fs-4"></i></a>
                   <a href="#" class="text-dark me-3"><i class="bi bi-instagram fs-4"></i></a>
                   <a href="#" class="text-dark"><i class="bi bi-twitter fs-4"></i></a>
@@ -44,9 +44,9 @@
           </div>
 
           <!-- Right Column: Contact Form -->
-          <div class="col-lg-6">
+          <div class="col-lg-6"style="margin-top:30px;">
               <div class="card shadow-lg p-4">
-                  <h4 class="text-dark mb-4">Send Us a Message</h4>
+                  <h4 class="text-dark mb-4" style="font-size:35px;">Send Us a Message</h4>
                   <form>
                       <div class="mb-3">
                           <label for="name" class="form-label">Full Name</label>

@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('images/Logo.png') }}" alt="Logo" width="80" height="80">
+            <img src="{{ asset('images/Logo.png') }}" alt="Logo" width="200" height="200">
         </a>
       
         <!-- Toggle button for small screens -->
@@ -16,7 +16,7 @@
         </button>
 
         <!-- Navbar items -->
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="nav-links collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">ABOUT</a>
@@ -33,14 +33,13 @@
             </ul>
 
             <!-- Buttons -->
-            <div class="d-flex">
-                <a href="{{route('rooms')}}" type="button" class="btn btn-success me-2 new-btn-color">BOOK NOW</a>
+            <div class="nav-btns d-flex flex-wrap align-items-center justify-content-end">
+                <a href="{{route('rooms')}}" class="btn btn-success new-btn-color me-2 mb-2 text-center d-flex justify-content-center align-items-center">BOOK NOW</a>
                 @if (Route::has('login'))
-                    
                     @auth
-                         <a href="{{ url('/dashboard') }}" type="button" class="btn btn-success new-btn-color">DASHBOARD</a>
+                        <a href="{{ url('/dashboard') }}" class="btn btn-success new-btn-color me-2 mb-2 text-center d-flex justify-content-center align-items-center">DASHBOARD</a>
                     @else
-                        <a href="{{ route('login') }}" type="button" class="btn btn-success new-btn-color">LOGIN / REGISTER</a>
+                        <a href="{{ route('login') }}" class="btn btn-success new-btn-color me-2 mb-2 text-center d-flex justify-content-center align-items-center">LOGIN / REGISTER</a>
                     @endauth
                 @endif
             </div>
