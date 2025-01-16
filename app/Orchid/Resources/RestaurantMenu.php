@@ -85,10 +85,11 @@ class RestaurantMenu extends Resource
             'weight' => 'required|numeric|min:0',
             'discount' => 'required|numeric|between:0,100',
         ]);
-
-        if($request->has('file')) {
+        
+        if($request->has('image')) {
         // Handle image upload
-            $image = $request->file('image');
+            $image = $request->file('model.image');
+
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $imageName);
         }   

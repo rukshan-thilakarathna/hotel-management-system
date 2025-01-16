@@ -16,6 +16,7 @@ use Orchid\Screen\Actions\Button;
 use App\Models\Booking;
 use App\Models\RoomAvailability;
 use App\Models\RoomBooking;
+use App\Services\RoomBookingService;
 use Orchid\Support\Facades\Toast;
 use Carbon\Carbon;
 
@@ -23,11 +24,17 @@ class RoomsCalendarListScreen extends Screen
 {
     public $RoomNumber = 0;
     public $Roomid = 0;
+    public $BlockRooms;
     /**
      * Fetch data to be displayed on the screen.
      *
      * @return array
      */
+
+     public function __construct(RoomBookingService $roomBooking)
+     {
+        $this->BlockRooms = $roomBooking;
+     }
     public function query(Rooms $id): iterable
     {
 
@@ -69,7 +76,7 @@ class RoomsCalendarListScreen extends Screen
 
                 Button::make(__('Block'))
                 ->icon('bs.check-circle')
-                ->method('save',[
+                ->method('Block',[
                     'id'=>$this->Roomid
                 ]),
 
@@ -93,7 +100,7 @@ class RoomsCalendarListScreen extends Screen
                     Input::make('event_month')
                         ->type('month')
                         ->title('Event Month')
-                        ->value('2024-07')
+                        ->value(now()->format('Y-m'))
                         ->placeholder('YYYY-MM')
                         ->horizontal(),
                 ],),
@@ -103,62 +110,23 @@ class RoomsCalendarListScreen extends Screen
 
     public function Filters(Request $request)
     {
-        return redirect('calendar/'.$request->id.'?Date='.$request->event_month);
+        return redirect('admin/calendar/'.$request->id.'?Date='.$request->event_month);
     }
 
-    public function save(Request $request)
+    public function Block(Request $request)
     {
-
-      
-        if($request->dates != null){
-            $BookRoom = Rooms::with('roomType','property')->where('id',$request->id)->first();
-
-
-        $chackIn = strtotime($request->dates[0]);
+        if(!empty($request->dates[0])){
+             $chackIn = strtotime($request->dates[0]);
         $chackOut = strtotime( $request->dates[count($request->dates) - 1]);
-        $property_id[] = $BookRoom->property_id;
 
-
-            $availabilityDb = RoomAvailability::where('room_number',$BookRoom->number)->first();
-            $dates = (new RoomAvailability)->getDate($chackIn,$chackOut);
-
-            foreach ($dates['DateList'] as $key => $date){
-                if ($date < 10){
-                    $date = str_replace("0","",$date);
-                }
-                $availabilityDb->$date = $availabilityDb->$date.'['.$dates['YearMonthDateList'][$key].']';
-            }
-
-            $availabilityDb->save();
-
-            $newBooking = new RoomBooking();
-
-            $newBooking->property_id = $BookRoom->property_id;
-            $newBooking->room_type = $BookRoom->room_type_id;
-            $newBooking->room_id =  $BookRoom->id;
-            $newBooking->user_id =  0;
-            $newBooking->name =null;
-            $newBooking->email = null;
-            $newBooking->phone_number = null;
-            $newBooking->check_in_Date = $request->dates[0];
-            $newBooking->room_number = $BookRoom->number;
-            $newBooking->check_out_Date = $request->dates[count($request->dates) - 1];
-            $newBooking->booking_date =Carbon::now();
-            $newBooking->total_amount = 0;
-            $newBooking->payment_method =null;
-            $newBooking->adults = 0;
-            $newBooking->children = 0;
-            $newBooking->special_requests ='';
-            $newBooking->payment_status =4;
-            $newBooking->booking_status = 4;
-
-            $newBooking->save();
-            Toast::info(__('Successful'));
+        dd($request->id);
         }else{
-            Toast::error(__('Date Empty'));
+            Toast::info(__('Select Dates'));
         }
-
+       
     }
+
+    
 
 
 }

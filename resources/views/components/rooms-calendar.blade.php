@@ -58,6 +58,7 @@
     <h1>{{$year}} - {{$month}} ({{$monthName}})</h1>
 </div>
 <form>
+    @csrf
     <div class="zd1">
         @foreach($weekDaysArray as $day)
             <div class="zd2 zd4">{{ $day }}</div>
@@ -76,7 +77,7 @@
                         @if(strpos($availability, $dateString))
                             <span style="border-radius: 0px 5px 5px 0px;background: #d9a9a9;display: block; width: 100%;padding: 5px 13px;border-left: 2px solid #f14a4a !important;">booked</span>
                         @else
-                        <input type="checkbox" class="zin1" name="dates[]" value="{{$year}}-{{$month}}-{{$currentDay}}">
+                        <input  type="checkbox" class="zin1" name="dates[]" value="{{$year}}-{{$month}}-{{$currentDay}}">
                             <span style="border-radius: 0px 5px 5px 0px;background: #83e399;display: block; width: 100%;padding: 5px 13px;border-left: 2px solid #179d35 !important;">available</span>
                         @endif
                     @endif
