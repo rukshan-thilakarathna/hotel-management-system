@@ -1,5 +1,36 @@
 <x-guest-layout>
+    <style>
+
+    @media (max-width: 768px) {
+                .bg-img{
+                    min-height: 100vh; /* Prevents cutting on smaller screens */
+                }
+            }
+    @media screen and (max-width: 320px) {
+        .card {
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9); /* Adjust background */
+            border-radius: 10px; /* Smooth borders */
+            height: 50px;
+        }
+    }
+
+    .card-home-icon {
+        position: absolute;
+        top: 25px;
+        font-size: 2rem; /* Adjust icon size */
+        right: 30px;
+        color: #000; /* Adjust icon color */
+        background: none; /* Background color for better visibility */
+        padding: 5px;
+        border-radius: 50%; /* Make it a circle */
+        z-index: 10; /* Ensure the icon is above other elements */
+    }
+
+    </style>
     <div class="card shadow-lg p-4" style="max-width: 400px; background-color: rgba(255, 255, 255, 0.8); border-radius: 15px;">
+    <div class="card-home-icon d-md-none"> <a href="/"><i class="bi bi-house-fill"></i></a></i> 
+    </div>
         <div class="card-body text-dark">
             <div class="text-center mb-4">
                 <i class="bi bi-door-open-fill text-primary" style="font-size: 3rem;"></i>

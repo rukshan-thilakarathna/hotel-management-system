@@ -1,3 +1,28 @@
+<style>
+    @media (max-width: 768px) {
+    .form-check {
+        display: inline-flex;
+        flex: 0 0 48%; /* Each column takes about half the width */
+        justify-content: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .form-check-input {
+        margin-right: 5px; /* Adjust spacing between checkbox and label */
+    }
+
+    .form-check-label {
+        white-space: nowrap; /* Prevent text wrapping */
+    }
+    
+    /* Ensure checkboxes wrap to a new row */
+    .form-check-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; /* Add gap between columns */
+    }
+}
+</style>
 <div class="card p-4 border rounded shadow-sm font3">
     <h5 class="fw-bold mb-4 text-primary">Filters</h5>
     <form id="bookingFilter" action="{{ route('rooms') }}" method="GET">
@@ -18,7 +43,6 @@
                 <option value="0" @if (isset($_GET['ac']) && $_GET['ac'] == 0) selected @endif>Non-AC</option>
             </select>
         </div>
-        
 
         <div class="form-check mb-3">
             <input onchange="Onchangef()" class="form-check-input" 

@@ -28,7 +28,7 @@
                                 <button class="btn btn-outline-secondary dropdown-toggle bg-white text-black" type="button" id="guestButton" data-bs-toggle="dropdown" aria-expanded="false"  style="width:100%;">
                                     {{session('adults') ?? 1}} Adult, {{session('children') ?? 0}} Children
                                 </button>
-                                <ul class="dropdown-menu p-3 bg-white" id="guestDropdown">
+                                <ul class="dropdown-menu p-3 bg-white" id="guestDropdown" style="width:100%; padding: 50px;">
                                     <li>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <label class="me-2">Adults</label>
@@ -39,10 +39,10 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <hr>
+                                    <hr style="margin-top:10px;">
                                     <li>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <label class="me-2">Children</label>
+                                        <div class="d-flex align-items-center justify-content-between" style="margin-top:10px;">
+                                            <label class="">Children</label>
                                             <div class="d-flex align-items-center">
                                                 <button type="button" class="btn btn-outline-secondary btn-sm" id="childMinus">-</button>
                                                 <span class="mx-2" id="childCount">{{session('children') ?? 0}}</span>
