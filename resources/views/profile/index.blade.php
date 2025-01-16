@@ -3,14 +3,28 @@
     @include('layouts.dashboard')
 
     <style>
+
+    .thank-card{
+        margin-top: -80px;
+    }
+         @media (max-width: 768px) {
+            .abt-img{
+                width: 150%;
+                justify-content: center;
+                margin-left: -93px;
+            }
+            .thank-card {
+                margin-top: -20px;
+            }
+        }
         
     </style>
 
- <section class="container py-5 font3">
+ <section class="container py-5 font3" style="margin-top:-70px;">
     <h1 class="text-muted py-5 text-center text-black fw-bold" style="font-size:40px;">Thank You For Choosing Us</h1>
         <div class="row align-items-center">
             <!-- Text Content -->
-            <div class="col-md-6 col-12 mb-4 mb-md-0">
+            <div class="thank-card col-md-6 col-12 mb-md-0">
             <h5 class="text-uppercase text-muted fw-bold mb-3">Tranquil Trails</h5>
 
                 <h2 class="text-muted fw-bold mb-4" style="font-size: 40px;">Relax in our Resort</h2>
@@ -26,8 +40,8 @@
                 <a href="#" class="fw-bold custom-color">SEE MORE...</a>
             </div>
             <!-- Images -->
-            <div class="col-md-6 col-12 position-relative mt-5">
-                <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
+            <div class="col-md-6 col-12 position-relative " style="margin-top:20px;">
+                <div class="abt-img d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
                     <img src="{{ asset('images/ABOUT2.jpg') }}" alt="Resort Image 1" class="img-fluid shadow" style="max-width: 45%;">
                     <img src="{{ asset('images/about1.jpg') }}" alt="Resort Image 2" class="img-fluid shadow" style="max-width: 55%; height: auto;">
                 </div>
