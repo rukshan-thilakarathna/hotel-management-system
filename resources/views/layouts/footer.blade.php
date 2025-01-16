@@ -12,8 +12,7 @@
             gap: 20px; /* Add small gaps between sections */
             max-width: 1200px;
             margin: 0 auto; /* Center the footer content */
-            padding-left: 10px;
-            padding-right: 10px;
+          
             
         }
 
@@ -74,6 +73,7 @@
         footer img{
             width: 100px;
             height: 100px;
+            justify-content: center;
         }
         .bottom-footer {
             background-color: black;
