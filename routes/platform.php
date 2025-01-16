@@ -22,6 +22,7 @@ use App\Orchid\Screens\RoomBooking\BookingListScreen;
 use App\Orchid\Screens\RoomBooking\RoomAvailabilityListScreen;
 use App\Orchid\Screens\Rooms\bill;
 use App\Orchid\Screens\Rooms\RoomListScreen;
+use App\Orchid\Screens\Rooms\RoomsCalendarListScreen;
 use App\Orchid\Screens\Rooms\RoomViewScreen;
 use App\Orchid\Screens\Staff\StaffEditScreen;
 use App\Orchid\Screens\Staff\StaffListScreen;
@@ -208,6 +209,11 @@ Route::screen('restaurant-place-order', RestaurantPlaceOrderListScreen::class)
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.systems.restaurant-order')
         ->push(__('Place New Order'), route('platform.systems.restaurant-place-order')));
+
+        //Calendar///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Route::screen('calendar/{id}',RoomsCalendarListScreen::class)
+->name('calendar');
 
 
 

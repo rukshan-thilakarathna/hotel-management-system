@@ -103,6 +103,10 @@ class RoomListLayout extends Table
                             ->icon('eye')
                             ->route('platform.rooms.view', $rooms->id),
 
+                        Link::make('Calendar')
+                            ->icon('eye')
+                            ->route('calendar', $rooms->id),
+
                     ])
 
 
