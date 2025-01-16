@@ -80,6 +80,12 @@ class RoomsCalendarListScreen extends Screen
                     'id'=>$this->Roomid
                 ]),
 
+                Button::make(__('UnBlock'))
+                ->icon('bs.check-circle')
+                ->method('UnBlock',[
+                    'id'=>$this->Roomid
+                ]),
+
             // Link::make('Back')->route('room-types')
         ];
     }
@@ -117,9 +123,30 @@ class RoomsCalendarListScreen extends Screen
     {
         if(!empty($request->dates[0])){
              $chackIn = strtotime($request->dates[0]);
-        $chackOut = strtotime( $request->dates[count($request->dates) - 1]);
+            $chackOut = strtotime( $request->dates[count($request->dates) - 1]);
 
-        dd($request->id);
+            if($this->BlockRooms->BlockRooms($request->id,$chackIn,$chackOut)){
+                Toast::info(__('Room has been blocked'));
+            }
+
+            
+        }else{
+            Toast::info(__('Select Dates'));
+        }
+       
+    }
+
+    public function UnBlock(Request $request)
+    {
+        if(!empty($request->dates[0])){
+             $chackIn = strtotime($request->dates[0]);
+            $chackOut = strtotime( $request->dates[count($request->dates) - 1]);
+
+            if($this->BlockRooms->UnBlockRooms($request->id,$chackIn,$chackOut)){
+                Toast::info(__('Room has been Unblocked'));
+            }
+
+            
         }else{
             Toast::info(__('Select Dates'));
         }

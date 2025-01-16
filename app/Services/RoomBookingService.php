@@ -216,18 +216,22 @@ class  RoomBookingService
      * @return bool True if the room was successfully unblocked, false otherwise.
      */
 
-    public function UnBlockRooms($roomId,$checkIn, $checkOut,$bookingId){
+    public function UnBlockRooms($roomId,$checkIn, $checkOut,$bookingId = null){
 
         $dates = $this->checkAvailability->getDate($checkIn, $checkOut);
         $availabilityDb = RoomAvailability::where('room_id',$roomId)->first();
 
-        $roomBooking = RoomBooking::find($bookingId);
-        $roomBooking->status = 'Cancelled';
-        $roomBooking->save();
+        if($bookingId){
+            $roomBooking = RoomBooking::find($bookingId);
+            $roomBooking->status = 'Cancelled';
+            $roomBooking->save();
 
-        $roomBill = RoomBill::where('id', $roomBooking->bill_id)->first();
-        $roomBill->status = 'Cancelled';
-        $roomBill->save();
+            $roomBill = RoomBill::where('id', $roomBooking->bill_id)->first();
+            $roomBill->status = 'Cancelled';
+            $roomBill->save();
+        }
+
+       
 
       
 
