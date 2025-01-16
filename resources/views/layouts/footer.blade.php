@@ -1,143 +1,141 @@
 <style>
     footer {
-            padding: 75px 15px; /* Reduce overall padding */
-            background-color: #f5e9dd; /* Keep the background consistent */
-            font-size: 20px;
-        }
+    padding: 50px 15px;
+    background-color: #f5e9dd;
+    font-size: 25px;
+    
+}
 
-        footer .container {
-            display: flex;
-            justify-content: space-between; /* Align sections horizontally */
-            flex-wrap: wrap; /* Allow wrapping for smaller screens */
-            gap: 20px; /* Add small gaps between sections */
-            max-width: 1200px;
-            margin: 0 auto; /* Center the footer content */
-          
-            
-        }
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
 
-        footer .column {
-            flex: 1; /* Ensure columns take equal space */
-            min-width: 200px; /* Prevent columns from shrinking too small */
-        }
+footer .footer-section {
+    padding: 10px;
+    text-align: center;
+}
 
-        footer h5 {
-            font-weight: bold;
-            margin-bottom: 10px; /* Reduce space below headers */
-            color: #6b4226;
-            
-        }
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #6b4226;
+}
 
-        footer p,
-        footer a {
-            font-size: 1.1rem; /* Adjust font size for uniformity */
-            line-height: 1.5;
-            color: #555;
-            margin: 5px 0; /* Reduce space between lines */
-        }
+footer p,
+footer a {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
 
-        footer a:hover {
-            color: #343a40;
-            text-decoration: underline;
-        }
+footer a:hover {
+    color: #343a40;
+    text-decoration: underline;
+}
 
-        footer .form-control {
-            width: 100%;
-            margin: 10px 0; /* Reduce margin around the input field */
-        }
-        .footer-links {
-            display: flex; /* Allows control over direction */
-            flex-direction: column; /* Stack links vertically */
-            gap: 0px; /* Add spacing between links */
-            padding: 0; /* Remove padding */
-            /* Remove margin */
-            margin-left: 35px;
-            font-size: 30px;
-        }
+footer img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
 
-        .footer-links a {
-            text-decoration: none; /* Remove underline from links */
-            color: #6b4226; /* Set link color */
-            font-size: 1rem; /* Adjust font size */
-            display: block; /* Ensure links take full width if needed */
-        }
+.footer-links a {
+    text-decoration: none;
+    color: #6b4226;
+    display: block;
+    margin: 5px 0;
+    
+}
 
-        .footer-links a:hover {
-            color: #343a40; /* Change link color on hover */
-            text-decoration: underline; /* Underline on hover */
-        }
-        .link{
-            margin-left: 35px;
-        }
+.footer-links a:hover {
+    color: #343a40;
+    text-decoration: underline;
+}
 
-        footer img{
-            width: 100px;
-            height: 100px;
-            justify-content: center;
-        }
-        .bottom-footer {
-            background-color: black;
-            color: white;
-            font-size: 18px;
-        }
-      .details-col{
-       
-       
-      }
+.footer-social-icons a {
+    font-size: 20px;
+    color: #6b4226;
+}
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            footer .footer-section {
-                margin-bottom: 30px; /* Add vertical spacing between sections */
-            }
+.footer-social-icons a:hover {
+    color: #343a40;
+}
 
-            footer .container {
-                display: flex; /* Ensure flex layout */
-                flex-direction: column; /* Stack sections vertically */
-                align-items: center; /* Center-align sections horizontally */
-                text-align: center; /* Center text for smaller screens */
-                gap: 20px; /* Add spacing between sections */
-                max-width: 1200px;
+.newsletter-form .form-control {
+    flex: 1;
+    border: 1px solid #6b4226;
+    border-radius: 5px;
+}
 
-            }
+.newsletter-form .btn-brown {
+    background-color: #6b4226;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
 
-            .footer-links {
-                margin-right: 35px; /* Reset right margin for smaller screens */
-                margin-bottom: 10px; /* Add spacing below links */
+.newsletter-form .btn-brown:hover {
+    background-color: #343a40;
+}
 
-            }
-            .link{
-                margin-right: 35px;
-            }
+.bottom-footer {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 0;
+    font-size: 14px;
+}
 
-            .newsletter-form {
-                flex-direction: column; /* Stack input and button vertically */
-                gap: 10px; /* Add space between the input and button */
-            }
+.footer-links{
+    margin-left: 100px;
+}
+.links{
+    margin-left: 97px;
+}
+.footer-logo {
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Ensures the logo is treated as a block-level element */
+}
 
-            footer img {
-                width: 100px;
-                height: 100px;
-                display: block;
-                margin: 0 auto; /* Center the image horizontally */
-            }
-
-            .footer-social-icons {
-                justify-content: center; /* Center-align social icons */
-            }
+@media (max-width: 768px) {
+    footer .container {
+        flex-direction: column;
+        text-align: center;
     }
+
+    footer .footer-section {
+        margin-bottom: 20px;
+    }
+    .footer-logo {
+        margin: 0 auto;
+    }
+
+    .footer-links{
+    margin-right: 100px;
+    }
+    .links{
+        margin-right: 97px;
+    }
+}
+
 
 </style>
 
 <footer>
     <div class="container font3">
-        <div class="details-col row">
+        <div class="row">
             <!-- Logo and Description -->
-            <div class="col-lg-4 col-md-6 footer-section">
+            <div class="details-col col-lg-3 col-md-6 footer-section text-center">
                 <img src="{{ asset('images/Logo.png') }}" alt="Tranquil Trails Logo" class="footer-logo">
                 <p><strong>Stay up to date with our latest news, receive exclusive deals and more</strong></p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <div class="footer-social-icons d-flex">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+                <div class="footer-social-icons d-flex justify-content-center">
                     <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-twitter"></i></a>
@@ -145,19 +143,19 @@
             </div>
 
             <!-- Links -->
-            <div class="col-lg-2 col-md-6 footer-section">
-                <h5 class="link">Links</h5>
+            <div class="col-lg-2 col-md-6 footer-section text-center">
+                <h5 class="links">Links</h5>
                 <div class="footer-links">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Rooms</a>
-                    <a href="#">Dining</a>
-                    <a href="#">Contact</a>
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/rooms">Rooms</a>
+                    <a href="/dining">Dining</a>
+                    <a href="/contact">Contact</a>
                 </div>
             </div>
 
             <!-- Contacts -->
-            <div class="col-lg-3 col-md-6 footer-section">
+            <div class="col-lg-4 col-md-6 footer-section text-center">
                 <h5>Contacts</h5>
                 <div class="footer-contacts">
                     <p>tranquiltrails@gmail.com</p>
@@ -168,14 +166,14 @@
             </div>
 
             <!-- Newsletter -->
-            <div class="col-lg-3 col-md-6 footer-section">
+            <div class="col-lg-3 col-md-6 footer-section text-center">
                 <h5>Newsletter</h5>
-                <form class="newsletter-form d-flex flex-wrap">
+                <form class="newsletter-form d-flex">
                     <input type="email" class="form-control me-2" placeholder="Your email here">
-                    <button class="btn btn-success new-btn-color">Join</button>
+                    <button class="btn new-btn-color">Join</button>
                 </form>
                 <p style="font-size: 0.85rem;">
-                    We respect your privacy and will never share your info. <a href="#" class="text-muted">Privacy Policy</a>
+                        We respect your privacy and will never share your info. <a href="#" class="text-muted">Privacy Policy</a>
                 </p>
             </div>
         </div>
