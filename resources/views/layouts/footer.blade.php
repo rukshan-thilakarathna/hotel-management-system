@@ -12,6 +12,7 @@ footer .container {
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
+    gap: 60px;
     
 }
 
@@ -103,6 +104,7 @@ footer img {
     display: block; /* Ensures the logo is treated as a block-level element */
 }
 
+
 @media (max-width: 768px) {
     footer .container {
         flex-direction: column;
@@ -136,7 +138,7 @@ footer img {
                 <p><strong>Stay up to date with our latest news, receive exclusive deals and more</strong></p>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
                 <div class="footer-social-icons d-flex justify-content-center">
-                    <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="https://web.facebook.com/profile.php?id=61571594955002" class="me-3"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-twitter"></i></a>
                 </div>

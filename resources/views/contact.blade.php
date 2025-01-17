@@ -37,7 +37,7 @@
               </ul>
               <h5 class="fw-bold mt-4" style="font-size:20px;">Follow Us</h5>
               <div style="margin-top:15px;">
-                  <a href="#" class="text-dark me-3"><i class="bi bi-facebook fs-4"></i></a>
+                  <a href="https://web.facebook.com/profile.php?id=61571594955002" class="text-dark me-3"><i class="bi bi-facebook fs-4"></i></a>
                   <a href="#" class="text-dark me-3"><i class="bi bi-instagram fs-4"></i></a>
                   <a href="#" class="text-dark"><i class="bi bi-twitter fs-4"></i></a>
               </div>

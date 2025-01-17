@@ -147,7 +147,7 @@
         @if ($availabilityStatus)
             <a href="{{route('booking-confirmation',$room->id)}}" class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100 book-btn-color custom-colorr font3">BOOK NOW</a>
         @else
-            <a href="#booking-form-ss" class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100 book-btn-color custom-color font3">First Check Availability Before Book This Room</a>
+            <a href="#booking-form-ss" class="btn btn-outline-success btn-lg px-4 py-2 mt-auto w-100 book-btn-color custom-color font3" style="margin-top:20px;">First Check Availability Before Book This Room</a>
         @endif
     @else
         {{-- <a href="{{route('booking-confirmation',$room->id)}}" class="btn btn-outline-success btn-lg px-4 py-2 mt-3 w-100 "> View Booking Details</a> --}}

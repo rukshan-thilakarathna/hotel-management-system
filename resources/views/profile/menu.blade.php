@@ -16,8 +16,9 @@
                 @endphp
 
                     @foreach ($menus as $menu)
-                        <div>
-                            <h2 class="text-2xl font-bold mb-4">{{ $menu['title'] }}</h2>
+                    <div class="col-span-2">
+                        <h2 class="text-2xl font-bold mb-4 text-center sm:text-left">{{ $menu['title'] }}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             @foreach ($menu['data'] as $mainDish)
                                 @if ($mainDish->subDishes->count() > 0)
                                     <div class="bg-gray-800 rounded-lg p-4 shadow-lg transition-transform hover:scale-105">
@@ -47,6 +48,7 @@
                                 @endif
                             @endforeach
                         </div>
+                    </div>
                     @endforeach
             </div>
         </div>

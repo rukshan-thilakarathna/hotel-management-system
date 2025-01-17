@@ -14,7 +14,7 @@
    @include('layouts.booking-form')
 
    <!-- Resort Section -->
-   <section class="container py-5 font3" style="background: url('{{ asset('images/') }}') no-repeat center center; background-size: cover;">
+   <section class="container py-5 font3" style="background: url('{{ asset('images/') }}') no-repeat center center; background-size: cover; margin-top: -30px;">
        <div class="row align-items-center">
            <!-- Text Content -->
            <div class="col-md-6 col-12 mb-4 mb-md-0">

@@ -22,8 +22,11 @@
                      <p class="lead">Home/Rooms</p>
                  </div>
              </div>
- 
-             @include('layouts.booking-form')
+        
+             <div class="col-md-12">
+                @include('layouts.booking-form')
+            </div>
+            
         </div>
     </section>
 
@@ -45,7 +48,6 @@
             </div>
         </div>
     </section>
-
 
     <script>
         function Onchangef() {
